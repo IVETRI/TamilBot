@@ -13,13 +13,13 @@ DEFAULTUSER = str(ALIVE_NAME) if ALIVE_NAME else "Set ALIVE_NAME in config vars 
 @borg.on(admin_cmd(pattern=r"alive"))
 async def amireallyalive(alive):
     """ For .alive command, check if the bot is running.  """
-    await alive.edit("`Jinda Hu Sarr ^.^ \nYour bot is running\n\nTelethon version: 6.9.0\nPython: 3.7.3\n\n`"
-                     f"`My peru owner`: {DEFAULTUSER}\n"
-                     "`Telethon version: 6.9.0\nPython: 3.7.3\nfork by:` @Halto_Tha\n"
-                     "`Database Status: Databases functioning normally!\n\nAlways with you, my master!\n`"
-                     "[Deploy this userbot Now](https://github.com/japarmar/GujjuBot)")
+    await alive.edit("`வணக்கம்! (●'◡'●) \nஉங்கள் போட் இயங்குகிறது.\n\nTelethon version: 6.9.0\nPython: 3.7.3\n\n`"
+                     f"`எனது உரிமையாளர்`: {DEFAULTUSER}\n"
+                     "`Telethon version: 6.9.0\nPython: 3.7.3\nProvided by:` @TamilUserBot\n"
+                     "`தரவுத்தள நிலை: தரவுத்தளங்கள் சிறப்பாக செயல்படுகின்றன!\n\nஎன்றும் உன்னுடன்,என் எஜமான்!\n`"
+                     "[Deploy This TamilBot Now](https://github.com/Ivetri/TamilBot)")
 
 @borg.on(admin_cmd(pattern=r"sudoalive", allow_sudo=True))
 async def amireallyalive(alive):
     """ For .alive command, check if the bot is running.  """
-    await alive.edit("`Jinda Hu Malik")
+    await alive.edit("`பயன்படுத்தியமைக்கு நன்றி!😊 ")
