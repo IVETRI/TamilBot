@@ -11,8 +11,18 @@
 
 [![tamilbot logo](https://telegra.ph/file/2790938cacb9aa80d478c.jpg)](https://heroku.com/deploy?template=https://github.com/ivetri/tamilbot)
 
+## Video Tutorial on deploying
+
+Click the below button to watch the video tutorial on deploying
+
+<a href="https://youtu.be/blah"><img src="https://img.shields.io/badge/How%20To%20Deploy-blue.svg?logo=Youtube"></a>
+<a href="https://youtu.be/blah"><img src="https://img.shields.io/youtube/views/aPU334icQSM?style=social">
+    
+
 ## Support
-Join [TeleBot Support group](https://t.me/TamilSupport) for updates and new plugin suggestions.
+
+
+Join for updates and new plugin suggestions.
 Do fork and star the repo 
 
 ### Session String 
