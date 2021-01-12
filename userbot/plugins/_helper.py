@@ -40,7 +40,7 @@ async def cmd_list(event):
             else:
                 await event.edit(input_str + " is not a valid plugin!")
         else:
-            help_string = """TamilBot Helper.. \nProvided by [TamilBot](https://t.me/TamilSupport)\n`Userbot Helper to reveal all the commands`"""
+            help_string = """TamilBot Helper... \nProvided by [TamilBot](https://t.me/TamilSupport)\n`தமிழ் UserBot பயனர்களுக்காக உருவாக்கப்பட்டது.`"""
             results = await bot.inline_query(  # pylint:disable=E0602
                 tgbotusername,
                 help_string
