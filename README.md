@@ -11,6 +11,18 @@
 
 [![tamilbot logo](https://telegra.ph/file/2790938cacb9aa80d478c.jpg)](https://heroku.com/deploy?template=https://github.com/ivetri/tamilbot)
 
+<p align="center">
+  <a href="https://github.com/ivetri/tamilbot/fork">
+    <img src="https://img.shields.io/github/forks/ivetri/tamilbot?label=Fork&style=social">
+    
+  </a>
+  <a href="https://github.com/ivetri/tamilbot">
+    <img src="https://img.shields.io/github/stars/ivetri/tamilbot?style=social">
+  </a>
+</p>
+
+
+
 ## Video Tutorial on deploying
 
 Click the below button to watch the video tutorial on deploying
@@ -34,16 +46,6 @@ Do fork and star the repo
 ## Deploy TamilBot to Heroku:
 
 [![Deploy To Heroku](https://www.herokucdn.com/deploy/button.svg)](https://dashboard.heroku.com/new?button-url=https%3A%2F%2Fgithub.com%2Fivetri%2Ftamilbot%2Ftree%2Fbugs&template=https%3A%2F%2Fgithub.com%2Fivetri%2Ftamilbot)
-<p align="center">
-  <a href="https://github.com/ivetri/tamilbot/fork">
-    <img src="https://img.shields.io/github/forks/ivetri/tamilbot?label=Fork&style=social">
-    
-  </a>
-  <a href="https://github.com/ivetri/tamilbot">
-    <img src="https://img.shields.io/github/stars/ivetri/tamilbot?style=social">
-  </a>
-</p>
-
 
 ## நான் அதை எவ்வாறு பயன்படுத்துவது?
 
