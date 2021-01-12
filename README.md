@@ -9,6 +9,17 @@
 /**
 ```
 
+[![Get string session](https://repl.it/badge/github/ivetri/tamilbot)](https://generatestringsession.ivetri.repl.run/)
+
+[![tamilbot logo](https://telegra.ph/file/2790938cacb9aa80d478c.jpg)](https://heroku.com/deploy?template=https://github.com/ivetri/tamilbot)
+
+## Support
+Join [TeleBot Support group](https://t.me/TamilSupport) for updates and new plugin suggestions.
+Do fork and star the repo 
+
+### Session String 
+<a href="https://telebot-sessionstring-generator.xditya.repl.run/" target="_blank"><img src="https://img.shields.io/badge/run-string__session.py-red?style=for-the-badge&logo=repl.it" alt="generate_string" /></a>
+
 ## Deploy TamilBot to Heroku:
 
 [![Deploy To Heroku](https://www.herokucdn.com/deploy/button.svg)](https://dashboard.heroku.com/new?button-url=https%3A%2F%2Fgithub.com%2Fivetri%2Ftamilbot%2Ftree%2Fbugs&template=https%3A%2F%2Fgithub.com%2Fivetri%2Ftamilbot)
@@ -22,9 +33,6 @@
   </a>
 </p>
 
-[![Get string session](https://repl.it/badge/github/ivetri/tamilbot)](https://generatestringsession.ivetri.repl.run/)
-
-[![tamilbot logo](https://telegra.ph/file/2790938cacb9aa80d478c.jpg)](https://heroku.com/deploy?template=https://github.com/ivetri/tamilbot)
 
 ## நான் அதை எவ்வாறு பயன்படுத்துவது?
 
