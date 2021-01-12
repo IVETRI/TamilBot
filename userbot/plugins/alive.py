@@ -12,20 +12,8 @@ DEFAULTUSER = str(ALIVE_NAME) if ALIVE_NAME else "Set ALIVE_NAME in config vars 
 #@command(outgoing=True, pattern="^.alive$")
 @borg.on(admin_cmd(pattern=r"alive"))
 async def amireallyalive(alive):
-    """ For .alive command, check if the bot is running.  """
-    if ALIVE_PIC:
-                     ("`வணக்கம்! (●'◡'●) \nஉங்கள் போட் இயங்குகிறது.\n\nTelethon version: 6.9.0\nPython: 3.7.3\n\n`"
-                     f"`எனது உரிமையாளர்`: {DEFAULTUSER}\n"
-                     "`Telethon version: 6.9.0\nPython: 3.7.3\nProvided by:` @TamilUserBot\n"
-                     "`தரவுத்தள நிலை: தரவுத்தளங்கள் சிறப்பாக செயல்படுகின்றன!\n\nஎன்றும் உன்னுடன்,என் எஜமான்!\n`"
-                     "[Deploy This TamilBot Now](https://github.com/Ivetri/TamilBot)")
-                     await alive.get_chat()
-        await borg.send_file(
-            alive.chat_id, ALIVE_PIC, caption=pm_caption, linkpreview=False
-        )
-        await alive.delete()     
-    await alive.edit PM_IMG = "https://telegra.ph/file/2790938cacb9aa80d478c.jpg"
-                     ("`வணக்கம்! (●'◡'●) \nஉங்கள் போட் இயங்குகிறது.\n\nTelethon version: 6.9.0\nPython: 3.7.3\n\n`"
+    """ For .alive command, check if the bot is running.  """    
+    await alive.edit("`வணக்கம்! (●'◡'●) \nஉங்கள் போட் இயங்குகிறது.\n\nTelethon version: 6.9.0\nPython: 3.7.3\n\n`"
                      f"`எனது உரிமையாளர்`: {DEFAULTUSER}\n"
                      "`Telethon version: 6.9.0\nPython: 3.7.3\nProvided by:` @TamilUserBot\n"
                      "`தரவுத்தள நிலை: தரவுத்தளங்கள் சிறப்பாக செயல்படுகின்றன!\n\nஎன்றும் உன்னுடன்,என் எஜமான்!\n`"
@@ -35,8 +23,4 @@ async def amireallyalive(alive):
 async def amireallyalive(alive):
     """ For .alive command, check if the bot is running.  """
     await alive.edit("`பயன்படுத்தியமைக்கு நன்றி!😊 ")
-    await alive.get_chat()
-        await borg.send_file(
-            alive.chat_id, PM_IMG, caption=pm_captionn, linkpreview=False
-        )
-        await alive.delete()
+   
