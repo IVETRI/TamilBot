@@ -67,6 +67,8 @@ Click the below button to watch the video tutorial on deploying
 நீங்கள் ஒரு பிழையைக் கண்டால், அதை எங்கள் டெலிகிராம் குழுவில் புகாரளிக்க பயப்பட வேண்டாம் அல்லது இந்த களஞ்சியத்தில் சிக்கலைத் திறக்கவும். அதிகாரப்பூர்வமற்றது
 [This Repo](https://github.com/IVETRI/TamilBot) இல் காணப்படும் எங்கள் மைய களஞ்சியத்தை பாதிக்கும் சிக்கல்களுக்கு மட்டுமே நாங்கள் உதவுவோம்.
 
+### Speacial Thanks To paperplane For Their Assistant Modules Bases
+
 # FORK AT YOUR OWN RISK
 
 
