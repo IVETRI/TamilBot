@@ -9,8 +9,6 @@
 /**
 ```
 
-[![Get string session](https://repl.it/badge/github/ivetri/tamilbot)](https://generatestringsession.ivetri.repl.run/)
-
 [![tamilbot logo](https://telegra.ph/file/2790938cacb9aa80d478c.jpg)](https://heroku.com/deploy?template=https://github.com/ivetri/tamilbot)
 
 ## Support
@@ -18,7 +16,10 @@ Join [TeleBot Support group](https://t.me/TamilSupport) for updates and new plug
 Do fork and star the repo 
 
 ### Session String 
+
 <a href="https://generatestringsession.ivetri.repl.run/" target="_blank"><img src="https://img.shields.io/badge/run-string__session.py-red?style=for-the-badge&logo=repl.it" alt="generate_string" /></a>
+
+<a href="https://repl.it/@ImSaravanakrish/Tamilbot" target="_blank"><img src="https://img.shields.io/badge/run-string__session.py-red?style=for-the-badge&logo=repl.it" alt="generate_string" /></a>
 
 ## Deploy TamilBot to Heroku:
 
