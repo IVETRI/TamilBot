@@ -24,7 +24,7 @@ async def set_not_afk(event):
         try:
             await borg.send_message(  # pylint:disable=E0602
                 Config.PRIVATE_GROUP_BOT_API_ID,  # pylint:disable=E0602
-                "Mera Malik A Gaya Hurray🥳🥳🥳"
+                "நான் வந்துவிட்டேன்🥳🥳🥳"
             )
         except Exception as e:  # pylint:disable=C0103,W0703
             await borg.send_message(  # pylint:disable=E0602
@@ -61,9 +61,9 @@ async def _(event):
             afk_time = datetime.datetime.now()  # pylint:disable=E0602
         USER_AFK = f"yes: {reason}"  # pylint:disable=E0602
         if reason:
-            await event.edit(f"Mera Malik Ja Raha Hai, and Reason is {reason}")
+            await event.edit(f"நான் Offline சென்றுள்ளேன். Online வந்ததும் உங்களுக்கு பதிலளிக்கிறேன், 😊 நான் Offline செல்ல காரணம் : {reason}")
         else:
-            await event.edit(f"Mera Malik Ja Raha Hai")
+            await event.edit(f"நான் Offline செல்கிறேன்.")
         await asyncio.sleep(5)
         await event.delete()
         try:
@@ -121,7 +121,7 @@ async def on_afk(event):
             else:
                 afk_since = f"`{int(seconds)}s` **ago**"
         msg = None
-        message_to_reply = f"My Master Has Been Gone For {afk_since}\nWhere He Is: Tereko kyu batau " + \
+        message_to_reply = f"நான் Offline-ல் இருக்கிறேன். {afk_since}\nWhere He Is: வந்து சொல்றேன்... " + \
             f"\n\n__ I'll back in a few hours__\n**REASON**: {reason}" \
             if reason \
             else f"**Important Notice**\n\n[This User Is Ded Forever...](https://telegra.ph//file/a53fa950ff31781d5930a.jpg) "
