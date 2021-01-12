@@ -35,10 +35,6 @@ Click the below button to watch the video tutorial on deploying
 <a href="https://youtu.be/blah"><img src="https://img.shields.io/youtube/views/blah?style=social">
     
 
-
-Join for updates and new plugin suggestions.
-Do fork and star the repo 
-
 ### Session String 
 
 <a href="https://generatestringsession.ivetri.repl.run/" target="_blank"><img src="https://img.shields.io/badge/run-string__session.py-red?style=for-the-badge&logo=repl.it" alt="generate_string" /></a>
