@@ -35,8 +35,6 @@ Click the below button to watch the video tutorial on deploying
 <a href="https://youtu.be/blah"><img src="https://img.shields.io/youtube/views/blah?style=social">
     
 
-## Support
-
 
 Join for updates and new plugin suggestions.
 Do fork and star the repo 
@@ -50,6 +48,8 @@ Do fork and star the repo
 ## Deploy TamilBot to Heroku:
 
 [![Deploy To Heroku](https://www.herokucdn.com/deploy/button.svg)](https://dashboard.heroku.com/new?button-url=https%3A%2F%2Fgithub.com%2Fivetri%2Ftamilbot%2Ftree%2Fbugs&template=https%3A%2F%2Fgithub.com%2Fivetri%2Ftamilbot)
+
+## குழுக்கள் மற்றும் ஆதரவு:
 
 ## நான் அதை எவ்வாறு பயன்படுத்துவது?
 
