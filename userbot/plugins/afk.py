@@ -61,7 +61,7 @@ async def _(event):
             afk_time = datetime.datetime.now()  # pylint:disable=E0602
         USER_AFK = f"yes: {reason}"  # pylint:disable=E0602
         if reason:
-            await event.edit(f"நான் Offline சென்றுள்ளேன். Online வந்ததும் உங்களுக்கு பதிலளிக்கிறேன், 😊 நான் Offline செல்ல காரணம் : {reason}")
+            await event.edit(f"நான் Offline செல்கிறேன்.: {reason}")
         else:
             await event.edit(f"நான் Offline செல்கிறேன்.")
         await asyncio.sleep(5)
@@ -121,8 +121,8 @@ async def on_afk(event):
             else:
                 afk_since = f"`{int(seconds)}s` **ago**"
         msg = None
-        message_to_reply = f"நான் Offline-ல் இருக்கிறேன். {afk_since}\nWhere He Is: வந்து சொல்றேன்... " + \
-            f"\n\n__ I'll back in a few hours__\n**REASON**: {reason}" \
+        message_to_reply = f"நான் Offline-ல் இருக்கிறேன். {afk_since}\nநா எங்க போனேன்னு வந்து சொல்றேன்... " + \
+            f"\n\n__ விரைவில் வருகிறேன்...__\n**காரணம்**: {reason}" \
             if reason \
             else f"**Important Notice**\n\n[This User Is Ded Forever...](https://telegra.ph//file/a53fa950ff31781d5930a.jpg) "
         msg = await event.reply(message_to_reply)
