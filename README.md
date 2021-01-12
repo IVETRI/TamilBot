@@ -18,7 +18,7 @@ Join [TeleBot Support group](https://t.me/TamilSupport) for updates and new plug
 Do fork and star the repo 
 
 ### Session String 
-<a href="https://telebot-sessionstring-generator.xditya.repl.run/" target="_blank"><img src="https://img.shields.io/badge/run-string__session.py-red?style=for-the-badge&logo=repl.it" alt="generate_string" /></a>
+<a href="https://generatestringsession.ivetri.repl.run/" target="_blank"><img src="https://img.shields.io/badge/run-string__session.py-red?style=for-the-badge&logo=repl.it" alt="generate_string" /></a>
 
 ## Deploy TamilBot to Heroku:
 
@@ -51,7 +51,7 @@ Do fork and star the repo
 [This Repo](https://github.com/IVETRI/TamilBot) இல் காணப்படும் எங்கள் மைய களஞ்சியத்தை பாதிக்கும் சிக்கல்களுக்கு மட்டுமே நாங்கள் உதவுவோம்.
 
 # FORK AT YOUR OWN RISK
-# Installing
+
 
 ### The Normal Way
 
