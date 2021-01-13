@@ -10,18 +10,18 @@ async def _(event):
     if event.fwd_from:
         return 
     if not event.reply_to_msg_id:
-       await event.edit("```எந்த பயனர் செய்திக்கும் பதிலளிக்கவும்.```")
+       await event.edit("```Reply to any user message.```")
        return
     reply_message = await event.get_reply_message() 
     if not reply_message.media:
-       await event.edit("```ஊடகங்களுக்கு பதில்```")
+       await event.edit("```reply to media```")
        return
     chat = "@image_deepfrybot"
     sender = reply_message.sender
     if reply_message.sender.bot:
-       await event.edit("```உண்மையான பயனர்களின் செய்திக்கு பதிலளிக்கவும்.```")
+       await event.edit("```Reply to actual users message.```")
        return
-    await event.edit("```செயலாக்கம்```")
+    await event.edit("```செயலாக்கம்...```")
     async with borg.conversation(chat) as conv:
           try:     
               response = conv.wait_event(events.NewMessage(incoming=True,from_users=432858024))
