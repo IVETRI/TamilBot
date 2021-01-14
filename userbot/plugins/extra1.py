@@ -31,7 +31,7 @@ async def _(event):
 
     animation_ttl = range(0, 11)
 
-    input_str = event.pattern_match.group(1)
+    input_str = event.pattern_match.group(0)
 
     if input_str == "Let's Know About Me😉":
 
@@ -70,7 +70,7 @@ async def _(event):
 
     animation_ttl = range(0, 11)
 
-    input_str = event.pattern_match.group(1)
+    input_str = event.pattern_match.group(0)
 
     if input_str == "sqh":
 
@@ -110,7 +110,7 @@ async def _(event):
 
     animation_ttl = range(0, 11)
 
-    input_str = event.pattern_match.group(1)
+    input_str = event.pattern_match.group(0)
 
     if input_str == "vquickheal":
 
