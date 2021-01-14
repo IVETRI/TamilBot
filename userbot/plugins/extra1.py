@@ -19,7 +19,7 @@ from userbot.utils import admin_cmd
 
 
 
-@borg.on(admin_cmd(pattern=r"(power)"))
+@borg.on(admin_cmd(pattern=r"power"))
 
 async def _(event):
 
@@ -58,7 +58,7 @@ async def _(event):
 
             await event.edit(animation_chars[i % 10])
 
-@borg.on(admin_cmd(pattern=r"(security)"))
+@borg.on(admin_cmd(pattern=r"security"))
 
 async def _(event):
 
@@ -98,7 +98,7 @@ async def _(event):
             await event.edit(animation_chars[i % 10])
 
 
-@borg.on(admin_cmd(pattern=r"(vscan)"))
+@borg.on(admin_cmd(pattern=r"vscan"))
 
 async def _(event):
 
