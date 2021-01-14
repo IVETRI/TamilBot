@@ -10,7 +10,7 @@ from ..utils import admin_cmd, edit_or_reply, sudo_cmd
 
 DEFAULTUSER = str(ALIVE_NAME) if ALIVE_NAME else "Set ALIVE_NAME in config vars in Heroku"
 TAMIL_IMG = Config.ALIVE_PIC
-SURCAT = (
+TAMIL = (
     str(Config.CUSTOM_ALIVE_TEXT)
     if Config.CUSTOM_ALIVE_TEXT
     else "☬ MY BOT IS RUNNING SUCCESFULLY ☬"
