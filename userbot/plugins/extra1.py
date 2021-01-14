@@ -1,8 +1,13 @@
 """Emoji
+
 Available Commands:
+
 .emoji shrug
+
 .emoji apple
+
 .emoji :/
+
 .emoji -_-"""
 
 from telethon import events
@@ -14,7 +19,7 @@ from userbot.utils import admin_cmd
 
 
 
-@borg.on(admin_cmd(pattern=r"(power*)"))
+@borg.on(admin_cmd(pattern=r"(.*)"))
 
 async def _(event):
 
@@ -28,7 +33,7 @@ async def _(event):
 
     input_str = event.pattern_match.group(1)
 
-    if input_str == "Know About Me😉":
+    if input_str == "chod":
 
         await event.edit(input_str)
 
@@ -53,7 +58,7 @@ async def _(event):
 
             await event.edit(animation_chars[i % 10])
 
-@borg.on(admin_cmd(pattern=r"(shq*)"))
+@borg.on(admin_cmd(pattern=r"(.*)"))
 
 async def _(event):
 
@@ -93,7 +98,7 @@ async def _(event):
             await event.edit(animation_chars[i % 10])
 
 
-@borg.on(admin_cmd(pattern=r"(vscan*)"))
+@borg.on(admin_cmd(pattern=r"(.*)"))
 
 async def _(event):
 
