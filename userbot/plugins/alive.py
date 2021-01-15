@@ -14,7 +14,7 @@ PM_IMG = Config.ALIVE_IMAGE
 @borg.on(admin_cmd(pattern=r"alive"))
 async def amireallyalive(alive):
     """ For .alive command, check if the bot is running.  """
-    await alive.edit("` PM_IMG, Jinda Hu Sarr ^.^ \nYour bot is running\n\nTelethon version: 6.9.0\nPython: 3.7.3\n\n`"
+    await alive.edit(PM_IMG, "`Jinda Hu Sarr ^.^ \nYour bot is running\n\nTelethon version: 6.9.0\nPython: 3.7.3\n\n`"
                      f"`My peru owner`: {DEFAULTUSER}\n"
                      "`Telethon version: 6.9.0\nPython: 3.7.3\n"
                      "`Database Status: Databases functioning normally!\n\nAlways with you, my master!\n`"
