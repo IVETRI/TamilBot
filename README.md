@@ -10,10 +10,6 @@
 /**
 ```
 
-[![tamilbot logo](https://telegra.ph/file/2790938cacb9aa80d478c.jpg)](https://heroku.com/deploy?template=https://github.com/ivetri/tamilbot)
-
-## Give your 💙 and support 
-
 Before clicking on deploy to heroku just click on fork and star just below
 
 <p align="center">
@@ -25,6 +21,12 @@ Before clicking on deploy to heroku just click on fork and star just below
     <img src="https://img.shields.io/github/stars/ivetri/tamilbot?style=social">
   </a>
 </p>
+
+[![tamilbot logo](https://telegra.ph/file/2790938cacb9aa80d478c.jpg)](https://heroku.com/deploy?template=https://github.com/ivetri/tamilbot)
+
+## Give your 💙 and support 
+
+
 
 
 ### Video Tutorial
