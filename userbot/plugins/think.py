@@ -1,5 +1,7 @@
 """Emoji
+
 Available Commands:
+
 .think"""
 
 from telethon import events
