@@ -1,10 +1,13 @@
 import asyncio
 import io
 import os
-import userbot.plugins.sql_helper.pmpermit_sql as pmpermit_sql
+
+from telethon import events, functions
 from telethon.tl.functions.users import GetFullUserRequest
-from telethon import events, errors, functions, types
-from userbot import ALIVE_NAME
+
+import fridaybot.plugins.sql_helper.pmpermit_sql as pmpermit_sql
+from userbot import ALIVE_NAME, CUSTOM_PMPERMIT
+from userbot.Configs import Config
 from userbot.utils import admin_cmd
 
 PMPERMIT_PIC = os.environ.get("PMPERMIT_PIC", None)
