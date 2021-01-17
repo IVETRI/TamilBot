@@ -5,10 +5,10 @@ import os
 from telethon import events, functions
 from telethon.tl.functions.users import GetFullUserRequest
 
-import fridaybot.modules.sql_helper.pmpermit_sql as pmpermit_sql
-from fridaybot import ALIVE_NAME, CUSTOM_PMPERMIT
-from fridaybot.Configs import Config
-from fridaybot.utils import friday_on_cmd
+import userbot.modules.sql_helper.pmpermit_sql as pmpermit_sql
+from userbot import ALIVE_NAME, CUSTOM_PMPERMIT
+from userbot.Configs import Config
+from userbot.utils import admin_cmd
 
 PMPERMIT_PIC = os.environ.get("PMPERMIT_PIC", None)
 if PMPERMIT_PIC is None:
@@ -39,7 +39,7 @@ USER_BOT_NO_WARN = (
 )
 if Var.PRIVATE_GROUP_ID is not None:
 
-    @borg.on(friday_on_cmd(pattern="(a|approve)"))
+    @borg.on(admin_cmd(pattern="(a|approve)"))
     async def block(event):
         if event.fwd_from:
             return
@@ -60,7 +60,7 @@ if Var.PRIVATE_GROUP_ID is not None:
                 await asyncio.sleep(3)
                 await event.delete()
 
-    @borg.on(friday_on_cmd(pattern="block$"))
+    @borg.on(admin_cmd(pattern="block$"))
     async def approve_p_m(event):
         if event.fwd_from:
             return
@@ -73,7 +73,7 @@ if Var.PRIVATE_GROUP_ID is not None:
             await event.edit("Blocked [{}](tg://user?id={})".format(firstname, chat.id))
             await event.client(functions.contacts.BlockRequest(chat.id))
 
-    @borg.on(friday_on_cmd(pattern="(da|disapprove)"))
+    @borg.on(admin_cmd(pattern="(da|disapprove)"))
     async def approve_p_m(event):
         if event.fwd_from:
             return
@@ -88,7 +88,7 @@ if Var.PRIVATE_GROUP_ID is not None:
                 )
                 await event.delete()
 
-    @borg.on(friday_on_cmd(pattern="listapproved$"))
+    @borg.on(admin_cmd(pattern="listapproved$"))
     async def approve_p_m(event):
         if event.fwd_from:
             return
