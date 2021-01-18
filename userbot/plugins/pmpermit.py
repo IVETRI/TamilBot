@@ -127,18 +127,29 @@ if Var.PRIVATE_GROUP_ID is not None:
             # fridaybot's should not reply to other fridaybot's
             # https://core.telegram.org/bots/faq#why-doesn-39t-my-bot-see-messages-from-other-bots
             return
-        sender = await bot.get_entity(event.sender_id)
+        sender = await bot.get_entity(chat_id)
+        
         if chat_ids == bot.uid:
+        
             # don't log Saved Messages
+        
             return
+        
         if sender.bot:
+           
             # don't log bots
+           
             return
+        
         if sender.verified:
-            # don't log verified accounts
+           
+             # don't log verified accounts
+           
+             return
+        
+        if any([x in event.raw_text for x in ("/start", "1", "2", "3", "4", "5")]):
             return
-        if PM_ON_OFF == "DISABLE":
-            return
+       
         if pmpermit_sql.is_approved(chat_ids):
             return
         if not pmpermit_sql.is_approved(chat_ids):
@@ -148,7 +159,7 @@ if Var.PRIVATE_GROUP_ID is not None:
     async def do_pm_permit_action(chat_ids, event):
         if chat_ids not in PM_WARNS:
             PM_WARNS.update({chat_ids: 0})
-        if PM_WARNS[chat_ids] == 3:
+        if PM_WARNS[chat_ids] == 5:
             r = await event.reply(USER_BOT_WARN_ZERO)
             await asyncio.sleep(3)
             await event.client(functions.contacts.BlockRequest(chat_ids))
