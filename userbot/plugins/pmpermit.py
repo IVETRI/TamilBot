@@ -125,9 +125,9 @@ if Var.PRIVATE_GROUP_ID is not None:
             # userbot's should not reply to other userbot's
             # https://core.telegram.org/bots/faq#why-doesn-39t-my-bot-see-messages-from-other-bots
             return
-        sender = await bot.get_entity(chat_id)
+        sender = await bot.get_entity(chat_ids)
 
-        if chat_id == bot.uid:
+        if chat_ids == bot.uid:
 
             # don't log Saved Messages
 
@@ -148,19 +148,19 @@ if Var.PRIVATE_GROUP_ID is not None:
         if any([x in event.raw_text for x in ("/start", "1", "2", "3", "4", "5")]):
             return
 
-        if not pmpermit_sql.is_approved(chat_id):
+        if not pmpermit_sql.is_approved(chat_ids):
             # pm permit
             await do_pm_permit_action(chat_ids, event)
 
     async def do_pm_permit_action(chat_ids, event):
-        if chat_id not in PM_WARNS:
+        if chat_ids not in PM_WARNS:
             PM_WARNS.update({chat_ids: 0})
         if PM_WARNS[chat_ids] == 5:
             r = await event.reply(USER_BOT_WARN_ZERO)
             await asyncio.sleep(3)
-            await event.client(functions.contacts.BlockRequest(chat_id))
-            if chat_id in PREV_REPLY_MESSAGE:
-                await PREV_REPLY_MESSAGE[chat_id].delete()
+            await event.client(functions.contacts.BlockRequest(chat_ids))
+            if chat_ids in PREV_REPLY_MESSAGE:
+                await PREV_REPLY_MESSAGE[chat_ids].delete()
             PREV_REPLY_MESSAGE[chat_ids] = r
             the_message = ""
             the_message += "#BLOCKED_PMs\n\n"
@@ -181,7 +181,7 @@ if Var.PRIVATE_GROUP_ID is not None:
             except:
                 return
         r = await event.reply(USER_BOT_NO_WARN)
-        PM_WARNS[chat_id] += 1
+        PM_WARNS[chat_ids] += 1
         if chat_id in PREV_REPLY_MESSAGE:
             await PREV_REPLY_MESSAGE[chat_id].delete()
         PREV_REPLY_MESSAGE[chat_ids] = r
