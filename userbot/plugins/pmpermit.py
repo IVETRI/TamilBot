@@ -12,7 +12,7 @@ PREV_REPLY_MESSAGE = {}
 
 DEFAULTUSER = str(ALIVE_NAME) if ALIVE_NAME else "Set ALIVE_NAME in config vars in Heroku"
 USER_BOT_WARN_ZERO = "`You were spamming my peru master's inbox, henceforth your retarded lame ass has been blocked by my master's userbot.` "
-USER_BOT_NO_WARN = ("[──▄█▀█▄─────────██ \n▄████████▄───▄▀█▄▄▄▄ \n██▀▼▼▼▼▼─▄▀──█▄▄ \n█████▄▲▲▲─▄▄▄▀───▀▄ \n██████▀▀▀▀─▀────────▀▀](tg://user?id=948408212)\n\n"
+USER_BOT_NO_WARN = ("[──▄█▀█▄─────────██ \n▄████████▄───▄▀█▄▄▄▄ \n██▀▼▼▼▼▼─▄▀──█▄▄ \n█████▄▲▲▲─▄▄▄▀───▀▄ \n██████▀▀▀▀─▀────────▀▀](tg://user?id=1492186775)\n\n"
                     "`Hello, this is Protected Security Service.You have found your way here to my master,`"
                     f"{DEFAULTUSER}`'s inbox.\n\n"
                     "Leave your name, phone number, address and 10k$ and hopefully you'll get a reply within 2 light years.`\n\n"
@@ -150,22 +150,22 @@ if Var.PRIVATE_GROUP_ID is not None:
 
         if not pmpermit_sql.is_approved(chat_id):
             # pm permit
-            await do_pm_permit_action(chat_ids, event)
+            await do_pm_permit_action(chat_id, event)
 
-    async def do_pm_permit_action(chat_ids, event):
-        if chat_ids not in PM_WARNS:
-            PM_WARNS.update({chat_ids: 0})
-        if PM_WARNS[chat_ids] == 5:
+    async def do_pm_permit_action(chat_id, event):
+        if chat_id not in PM_WARNS:
+            PM_WARNS.update({chat_id: 0})
+        if PM_WARNS[chat_id] == 5:
             r = await event.reply(USER_BOT_WARN_ZERO)
             await asyncio.sleep(3)
-            await event.client(functions.contacts.BlockRequest(chat_ids))
+            await event.client(functions.contacts.BlockRequest(chat_id))
             if chat_ids in PREV_REPLY_MESSAGE:
-                await PREV_REPLY_MESSAGE[chat_ids].delete()
-            PREV_REPLY_MESSAGE[chat_ids] = r
+                await PREV_REPLY_MESSAGE[chat_id].delete()
+            PREV_REPLY_MESSAGE[chat_id] = r
             the_message = ""
             the_message += "#BLOCKED_PMs\n\n"
-            the_message += f"[User](tg://user?id={chat_ids}): {chat_ids}\n"
-            the_message += f"Message Count: {PM_WARNS[chat_ids]}\n"
+            the_message += f"[User](tg://user?id={chat_ids}): {chat_id}\n"
+            the_message += f"Message Count: {PM_WARNS[chat_id]}\n"
             # the_message += f"Media: {message_media}"
             try:
                 await event.client.send_message(
@@ -181,10 +181,10 @@ if Var.PRIVATE_GROUP_ID is not None:
             except:
                 return
         r = await event.reply(USER_BOT_NO_WARN)
-        PM_WARNS[chat_ids] += 1
+        PM_WARNS[chat_id] += 1
         if chat_id in PREV_REPLY_MESSAGE:
             await PREV_REPLY_MESSAGE[chat_id].delete()
-        PREV_REPLY_MESSAGE[chat_ids] = r
+        PREV_REPLY_MESSAGE[chat_id] = r
 
 from userbot.utils import admin_cmd
 import io
@@ -196,10 +196,10 @@ async def hehehe(event):
         return
     chat = await event.get_chat()
     if event.is_private:
-        if not pmpermit_sql.is_approved(chats.id):
+        if not pmpermit_sql.is_approved(chat.id):
           if chat.id in PREV_REPLY_MESSAGE:
-            await PREV_REPLY_MESSAGE[chats.id].delete()
-            del PREV_REPLY_MESSAGE[chats.id]
-          pmpermit_sql.approve(chats.id, "My master🙈🙈")
-          await borg.send_message(chats, "My master is come....Thank you master")
+            await PREV_REPLY_MESSAGE[chat.id].delete()
+            del PREV_REPLY_MESSAGE[chat.id]
+          pmpermit_sql.approve(chat.id, "My master🙈🙈")
+          await borg.send_message(chat, "My master is come....Thank you master")
    
