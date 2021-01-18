@@ -127,7 +127,7 @@ if Var.PRIVATE_GROUP_ID is not None:
             return
         sender = await bot.get_entity(chat_id)
 
-        if chat_ids == bot.uid:
+        if chat_id == bot.uid:
 
             # don't log Saved Messages
 
