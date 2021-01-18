@@ -22,9 +22,9 @@ PREV_REPLY_MESSAGE = {}
 DEFAULTUSER = str(ALIVE_NAME) if ALIVE_NAME else "Set ALIVE_NAME in config vars in Heroku"
 USER_BOT_WARN_ZERO = "`You Have Attempted To Spam Masters Inbox So Inorder To Avoid Over Spam , You Have Been Blocked By Userbot`"    
 USER_BOT_NO_WARN = ("**Hello, This is TamilBot PM Protection Service ⚠️**\n\n"
-                     f"`My Master {DEFAULTUSER} is Busy Right Now !` \n"
+                     f"`My Owner {DEFAULTUSER} is Busy Right Now !` \n"
                      "**I Request You To Choose A Reason You Have Came For** 👀 \n\n"
-                     f"**{CUSTOM_MIDDLE_PMP}**")
+                     "** Send** `/start` ** so that we can decide why you're here.**")
     
 if Var.PRIVATE_GROUP_ID is not None:
 
