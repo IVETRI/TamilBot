@@ -150,7 +150,7 @@ if Var.PRIVATE_GROUP_ID is not None:
 
         if not pmpermit_sql.is_approved(chat_id):
             # pm permit
-            await do_pm_permit_action(chat_id, event)
+            await do_pm_permit_action(chat_ids, event)
 
     async def do_pm_permit_action(chat_id, event):
         if chat_id not in PM_WARNS:
