@@ -152,20 +152,20 @@ if Var.PRIVATE_GROUP_ID is not None:
             # pm permit
             await do_pm_permit_action(chat_ids, event)
 
-    async def do_pm_permit_action(chat_id, event):
+    async def do_pm_permit_action(chat_ids, event):
         if chat_id not in PM_WARNS:
-            PM_WARNS.update({chat_id: 0})
-        if PM_WARNS[chat_id] == 5:
+            PM_WARNS.update({chat_ids: 0})
+        if PM_WARNS[chat_ids] == 5:
             r = await event.reply(USER_BOT_WARN_ZERO)
             await asyncio.sleep(3)
             await event.client(functions.contacts.BlockRequest(chat_id))
             if chat_id in PREV_REPLY_MESSAGE:
                 await PREV_REPLY_MESSAGE[chat_id].delete()
-            PREV_REPLY_MESSAGE[chat_id] = r
+            PREV_REPLY_MESSAGE[chat_ids] = r
             the_message = ""
             the_message += "#BLOCKED_PMs\n\n"
-            the_message += f"[User](tg://user?id={chat_id}): {chat_id}\n"
-            the_message += f"Message Count: {PM_WARNS[chat_id]}\n"
+            the_message += f"[User](tg://user?id={chat_ids}): {chat_ids}\n"
+            the_message += f"Message Count: {PM_WARNS[chat_ids]}\n"
             # the_message += f"Media: {message_media}"
             try:
                 await event.client.send_message(
@@ -184,7 +184,7 @@ if Var.PRIVATE_GROUP_ID is not None:
         PM_WARNS[chat_id] += 1
         if chat_id in PREV_REPLY_MESSAGE:
             await PREV_REPLY_MESSAGE[chat_id].delete()
-        PREV_REPLY_MESSAGE[chat_id] = r
+        PREV_REPLY_MESSAGE[chat_ids] = r
 
 from userbot.utils import admin_cmd
 import io
@@ -196,10 +196,10 @@ async def hehehe(event):
         return
     chat = await event.get_chat()
     if event.is_private:
-        if not pmpermit_sql.is_approved(chat.id):
+        if not pmpermit_sql.is_approved(chats.id):
           if chat.id in PREV_REPLY_MESSAGE:
-            await PREV_REPLY_MESSAGE[chat.id].delete()
+            await PREV_REPLY_MESSAGE[chats.id].delete()
             del PREV_REPLY_MESSAGE[chat.id]
-          pmpermit_sql.approve(chat.id, "My master🙈🙈")
+          pmpermit_sql.approve(chats.id, "My master🙈🙈")
           await borg.send_message(chat, "My master is come....Thank you master")
    
