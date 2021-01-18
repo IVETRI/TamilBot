@@ -201,5 +201,5 @@ async def hehehe(event):
             await PREV_REPLY_MESSAGE[chats.id].delete()
             del PREV_REPLY_MESSAGE[chat.id]
           pmpermit_sql.approve(chats.id, "My master🙈🙈")
-          await borg.send_message(chat, "My master is come....Thank you master")
+          await borg.send_message(chats, "My master is come....Thank you master")
    
