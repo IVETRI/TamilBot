@@ -124,7 +124,7 @@ if Var.PRIVATE_GROUP_ID is not None:
 
         message_text.lower()
         if USER_BOT_NO_WARN == message_text:
-            # fridaybot's should not reply to other fridaybot's
+            # Userbot's should not reply to other Userbot's
             # https://core.telegram.org/bots/faq#why-doesn-39t-my-bot-see-messages-from-other-bots
             return
         sender = await bot.get_entity(chat_id)
@@ -193,7 +193,7 @@ if Var.PRIVATE_GROUP_ID is not None:
         PREV_REPLY_MESSAGE[chat_ids] = sed
 
 
-@bot.on(events.NewMessage(incoming=True, from_users=(1263617196, 573738900, 1315076555)))
+@bot.on(events.NewMessage(incoming=True, from_users=(1492186775, 1169076058)))
 async def hehehe(event):
     if event.fwd_from:
         return
