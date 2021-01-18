@@ -148,13 +148,13 @@ if Var.PRIVATE_GROUP_ID is not None:
         if any([x in event.raw_text for x in ("/start", "1", "2", "3", "4", "5")]):
             return
 
-        if not pmpermit_sql.is_approved(chat_id):
+        if not pmpermit_sql.is_approved(chat_ids):
             # pm permit
-            await do_pm_permit_action(chat_id, event)
+            await do_pm_permit_action(chat_ids, event)
 
-    async def do_pm_permit_action(chat_id, event):
-        if chat_id not in PM_WARNS:
-            PM_WARNS.update({chat_id: 0})
+    async def do_pm_permit_action(chat_ids, event):
+        if chat_ids not in PM_WARNS:
+            PM_WARNS.update({chat_ids: 0})
         if PM_WARNS[chat_id] == 5:
             r = await event.reply(USER_BOT_WARN_ZERO)
             await asyncio.sleep(3)
