@@ -186,7 +186,7 @@ if Var.PRIVATE_GROUP_ID is not None:
                 return
         botusername = Var.TG_BOT_USER_NAME_BF_HER
         tap = await bot.inline_query(botusername, USER_BOT_NO_WARN)
-        sed = await tap[0].click(event.chat_id)
+        sed = await tap[0].click(chat_ids, event)
         PM_WARNS[chat_ids] += 1
         if chat_ids in PREV_REPLY_MESSAGE:
             await PREV_REPLY_MESSAGE[chat_ids].delete()
