@@ -118,7 +118,7 @@ if Var.PRIVATE_GROUP_ID is not None:
             return
 
         message_text = event.message.message
-        chat_id = event.from_id
+        chat_id = event.sender_id
 
         current_message_text = message_text.lower()
         if USER_BOT_NO_WARN == message_text:
