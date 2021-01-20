@@ -7,7 +7,7 @@ from telethon.tl.custom import Dialog
 from telethon.tl.types import Channel, Chat, User
 
 from ..utils import admin_cmd
-from .userbot import CMD_HELP
+from . import CMD_HELP
 
 
 @borg.on(admin_cmd(pattern="stat"))
