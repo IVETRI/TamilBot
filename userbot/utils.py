@@ -172,6 +172,16 @@ def admin_cmd(pattern=None, **args):
 
     return events.NewMessage(**args)
 
+
+async def edit_or_reply(event, text):
+    if event.sender_id in Config.SUDO_USERS:
+        reply_to = await event.get_reply_message()
+        if reply_to:
+            return await reply_to.reply(text)
+        return await event.reply(text)
+    return await event.edit(text)
+
+
 """ Userbot module for managing events.
  One of the main components of the userbot. """
 
