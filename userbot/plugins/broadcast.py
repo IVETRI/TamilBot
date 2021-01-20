@@ -9,7 +9,7 @@ from userbot.plugins.sql_helper.broadcast_sql import (
     in_channels,
     rm_channel,
 )
-from .utils import admin_cmd
+from userbot.utils import admin_cmd
 
 logs_id = Var.PLUGIN_CHANNEL
 
