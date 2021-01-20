@@ -12,7 +12,7 @@ class Var(object):
     GIT_REPO_NAME = os.environ.get("GIT_REPO_NAME", None)
     # Here for later purposes
     SUDO_USERS = os.environ.get("SUDO_USERS", "1492186775")
-    #PLUGIN_CHANNEL = int(os.environ.get("PLUGIN_CHANNEL", None))
+    PLUGIN_CHANNEL = int(os.environ.get("PLUGIN_CHANNEL", None))
     LYDIA_API_KEY = os.environ.get("LYDIA_API_KEY", None)
     HEROKU_API_KEY = os.environ.get("HEROKU_API_KEY", None)
     HEROKU_APP_NAME = os.environ.get("HEROKU_APP_NAME", None)
