@@ -8,8 +8,8 @@ from userbot import BOTLOG, BOTLOG_CHATID
 from .sql_helper import broadcast_sql as sql
 
 
-@bot.on(admin_cmd(pattern="sendto(?: |$)(.*)", command="sendto"))
-@bot.on(sudo_cmd(pattern="sendto(?: |$)(.*)", command="sendto", allow_sudo=True))
+@borg.on(admin_cmd(pattern="sendto(?: |$)(.*)", command="sendto"))
+@borg.on(sudo_cmd(pattern="sendto(?: |$)(.*)", command="sendto", allow_sudo=True))
 async def catbroadcast_send(event):
     if event.fwd_from:
         return
@@ -64,8 +64,8 @@ async def catbroadcast_send(event):
         )
 
 
-@bot.on(admin_cmd(pattern="fwdto(?: |$)(.*)", command="fwdto"))
-@bot.on(sudo_cmd(pattern="fwdto(?: |$)(.*)", command="fwdto", allow_sudo=True))
+@borg.on(admin_cmd(pattern="fwdto(?: |$)(.*)", command="fwdto"))
+@borg.on(sudo_cmd(pattern="fwdto(?: |$)(.*)", command="fwdto", allow_sudo=True))
 async def catbroadcast_send(event):
     if event.fwd_from:
         return
@@ -120,8 +120,8 @@ async def catbroadcast_send(event):
         )
 
 
-@bot.on(admin_cmd(pattern="addto(?: |$)(.*)", command="addto"))
-@bot.on(sudo_cmd(pattern="addto(?: |$)(.*)", command="addto", allow_sudo=True))
+@borg.on(admin_cmd(pattern="addto(?: |$)(.*)", command="addto"))
+@borg.on(sudo_cmd(pattern="addto(?: |$)(.*)", command="addto", allow_sudo=True))
 async def catbroadcast_add(event):
     if event.fwd_from:
         return
@@ -159,8 +159,8 @@ async def catbroadcast_add(event):
             )
 
 
-@bot.on(admin_cmd(pattern="rmfrom(?: |$)(.*)", command="rmfrom"))
-@bot.on(sudo_cmd(pattern="rmfrom(?: |$)(.*)", command="rmfrom", allow_sudo=True))
+@borg.on(admin_cmd(pattern="rmfrom(?: |$)(.*)", command="rmfrom"))
+@borg.on(sudo_cmd(pattern="rmfrom(?: |$)(.*)", command="rmfrom", allow_sudo=True))
 async def catbroadcast_remove(event):
     if event.fwd_from:
         return
@@ -198,8 +198,8 @@ async def catbroadcast_remove(event):
             )
 
 
-@bot.on(admin_cmd(pattern="list(?: |$)(.*)", command="list"))
-@bot.on(sudo_cmd(pattern="list(?: |$)(.*)", command="list", allow_sudo=True))
+@borg.on(admin_cmd(pattern="list(?: |$)(.*)", command="list"))
+@borg.on(sudo_cmd(pattern="list(?: |$)(.*)", command="list", allow_sudo=True))
 async def catbroadcast_list(event):
     if event.fwd_from:
         return
@@ -241,8 +241,8 @@ async def catbroadcast_list(event):
     await edit_or_reply(catevent, finaloutput)
 
 
-@bot.on(admin_cmd(pattern="listall$", command="listall"))
-@bot.on(sudo_cmd(pattern="listall$", command="listall", allow_sudo=True))
+@borg.on(admin_cmd(pattern="listall$", command="listall"))
+@borg.on(sudo_cmd(pattern="listall$", command="listall", allow_sudo=True))
 async def catbroadcast_list(event):
     if event.fwd_from:
         return
@@ -259,8 +259,8 @@ async def catbroadcast_list(event):
     await edit_or_reply(event, resultext)
 
 
-@bot.on(admin_cmd(pattern="frmfrom(?: |$)(.*)", command="frmfrom"))
-@bot.on(sudo_cmd(pattern="frmfrom(?: |$)(.*)", command="frmfrom", allow_sudo=True))
+@borg.on(admin_cmd(pattern="frmfrom(?: |$)(.*)", command="frmfrom"))
+@borg.on(sudo_cmd(pattern="frmfrom(?: |$)(.*)", command="frmfrom", allow_sudo=True))
 async def catbroadcast_remove(event):
     if event.fwd_from:
         return
@@ -318,8 +318,8 @@ async def catbroadcast_remove(event):
             )
 
 
-@bot.on(admin_cmd(pattern="delc(?: |$)(.*)", command="delc"))
-@bot.on(sudo_cmd(pattern="delc(?: |$)(.*)", command="delc", allow_sudo=True))
+@borg.on(admin_cmd(pattern="delc(?: |$)(.*)", command="delc"))
+@borg.on(sudo_cmd(pattern="delc(?: |$)(.*)", command="delc", allow_sudo=True))
 async def catbroadcast_delete(event):
     if event.fwd_from:
         return
