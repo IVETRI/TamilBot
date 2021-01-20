@@ -148,23 +148,23 @@ if Var.PRIVATE_GROUP_ID is not None:
         if any([x in event.raw_text for x in ("/start", "1", "2", "3", "4", "5")]):
             return
 
-        if not pmpermit_sql.is_approved(chat_ids):
+        if not pmpermit_sql.is_approved(chat_id):
             # pm permit
-            await do_pm_permit_action(chat_ids, event)
+            await do_pm_permit_action(chat_id, event)
 
-    async def do_pm_permit_action(chat_ids, event):
-        if chat_ids not in PM_WARNS:
-            PM_WARNS.update({chat_ids: 0})
+    async def do_pm_permit_action(chat_id, event):
+        if chat_id not in PM_WARNS:
+            PM_WARNS.update({chat_id: 0})
         if PM_WARNS[chat_id] == 5:
             r = await event.reply(USER_BOT_WARN_ZERO)
             await asyncio.sleep(3)
             await event.client(functions.contacts.BlockRequest(chat_id))
-            if chat_ids in PREV_REPLY_MESSAGE:
+            if chat_id in PREV_REPLY_MESSAGE:
                 await PREV_REPLY_MESSAGE[chat_id].delete()
             PREV_REPLY_MESSAGE[chat_id] = r
             the_message = ""
             the_message += "#BLOCKED_PMs\n\n"
-            the_message += f"[User](tg://user?id={chat_ids}): {chat_id}\n"
+            the_message += f"[User](tg://user?id={a_user.chat_id}): {chat_id}\n"
             the_message += f"Message Count: {PM_WARNS[chat_id]}\n"
             # the_message += f"Media: {message_media}"
             try:
