@@ -1,4 +1,4 @@
-#modified by @saravanakrish for @tamiluserbot
+# modified by @saravanakrish for @tamiluserbot
 # Fully Written by @HeisenbergTheDanger (Keep credits else gay)
 import asyncio
 
