@@ -1,347 +1,269 @@
-import base64
-from asyncio import sleep
+# Fully Written by @HeisenbergTheDanger (Keep credits else gay)
+import asyncio
 
-from telethon.tl.functions.messages import ImportChatInviteRequest as Get
+from telethon.tl.types import InputMediaUploadedPhoto
 
-from ..utils import admin_cmd
-from userbot import BOTLOG, BOTLOG_CHATID
-from .sql_helper import broadcast_sql as sql
+from jarvis.plugins.sql_helper.broadcast_sql import (
+    add_channel,
+    get_all_channels,
+    in_channels,
+    rm_channel,
+)
+from .utils import admin_cmd
+
+logs_id = Var.PLUGIN_CHANNEL
 
 
-@borg.on(admin_cmd(pattern="sendto(?: |$)(.*)", command="sendto"))
-@borg.on(sudo_cmd(pattern="sendto(?: |$)(.*)", command="sendto", allow_sudo=True))
-async def catbroadcast_send(event):
+@borg.on(admin_cmd("bforward ?(.*)", outgoing=True))
+@borg.on(sudo_cmd("bforward ?(.*)", allow_sudo=True))
+async def forw(event):
     if event.fwd_from:
         return
-    catinput_str = event.pattern_match.group(1)
-    if not catinput_str:
-        return await edit_delete(
-            event, "To which category should i send this message", parse_mode=parse_pre
-        )
-    reply = await event.get_reply_message()
-    cat = base64.b64decode("QUFBQUFGRV9vWjVYVE5fUnVaaEtOdw==")
-    catchat = await event.get_chat()
-    if not reply:
-        return await edit_delete(
-            event, "what should i send to to this category ?", parse_mode=parse_pre
-        )
-    keyword = catinput_str.lower()
-    no_of_chats = sql.num_broadcastlist_chat(keyword)
-    group_ = Get(cat)
-    if no_of_chats == 0:
-        return await edit_delete(
-            event,
-            f"There is no category with name {keyword}. Check '.listall'",
-            parse_mode=parse_pre,
-        )
-    chats = sql.get_chat_broadcastlist(keyword)
-    catevent = await edit_or_reply(
-        event,
-        "sending this message to all groups in the category",
-        parse_mode=parse_pre,
-    )
-    try:
-        await event.client(group_)
-    except BaseException:
-        pass
-    i = 0
-    for chat in chats:
-        try:
-            if int(catchat.id) == int(chat):
-                continue
-            await event.client.send_message(int(chat), reply)
-            i += 1
-        except:
-            pass
-        await sleep(0.5)
-    resultext = f"`The message was sent to {i} chats out of {no_of_chats} chats in category {keyword}.`"
-    await catevent.edit(resultext)
-    if BOTLOG:
-        await event.client.send_message(
-            BOTLOG_CHATID,
-            f"A message is sent to {i} chats out of {no_of_chats} chats in category {keyword}",
-            parse_mode=parse_pre,
-        )
-
-
-@borg.on(admin_cmd(pattern="fwdto(?: |$)(.*)", command="fwdto"))
-@borg.on(sudo_cmd(pattern="fwdto(?: |$)(.*)", command="fwdto", allow_sudo=True))
-async def catbroadcast_send(event):
-    if event.fwd_from:
+    if not event.is_reply:
+        await edit_or_reply(event, "Reply to a message to broadcast.")
         return
-    catinput_str = event.pattern_match.group(1)
-    if not catinput_str:
-        return await edit_delete(
-            event, "To which category should i send this message", parse_mode=parse_pre
-        )
-    reply = await event.get_reply_message()
-    cat = base64.b64decode("QUFBQUFGRV9vWjVYVE5fUnVaaEtOdw==")
-    catchat = await event.get_chat()
-    if not reply:
-        return await edit_delete(
-            event, "what should i send to to this category ?", parse_mode=parse_pre
-        )
-    keyword = catinput_str.lower()
-    no_of_chats = sql.num_broadcastlist_chat(keyword)
-    group_ = Get(cat)
-    if no_of_chats == 0:
-        return await edit_delete(
-            event,
-            f"There is no category with name {keyword}. Check '.listall'",
-            parse_mode=parse_pre,
-        )
-    chats = sql.get_chat_broadcastlist(keyword)
-    catevent = await edit_or_reply(
-        event,
-        "sending this message to all groups in the category",
-        parse_mode=parse_pre,
-    )
-    try:
-        await event.client(group_)
-    except BaseException:
-        pass
-    i = 0
-    for chat in chats:
+    channels = get_all_channels()
+    await event.edit("Sending...")
+    error_count = 0
+    sent_count = 0
+    if event.reply_to_msg_id:
+        previous_message = await event.get_reply_message()
+        previous_message.message
+        previous_message.raw_text
+    error_count = 0
+    for channel in channels:
         try:
-            if int(catchat.id) == int(chat):
-                continue
-            await event.client.forward_messages(int(chat), reply)
-            i += 1
-        except:
-            pass
-        await sleep(0.5)
-    resultext = f"`The message was sent to {i} chats out of {no_of_chats} chats in category {keyword}.`"
-    await catevent.edit(resultext)
-    if BOTLOG:
-        await event.client.send_message(
-            BOTLOG_CHATID,
-            f"A message is forwared to {i} chats out of {no_of_chats} chats in category {keyword}",
-            parse_mode=parse_pre,
-        )
-
-
-@borg.on(admin_cmd(pattern="addto(?: |$)(.*)", command="addto"))
-@borg.on(sudo_cmd(pattern="addto(?: |$)(.*)", command="addto", allow_sudo=True))
-async def catbroadcast_add(event):
-    if event.fwd_from:
-        return
-    catinput_str = event.pattern_match.group(1)
-    if not catinput_str:
-        return await edit_delete(
-            event, "In which category should i add this chat", parse_mode=parse_pre
-        )
-    keyword = catinput_str.lower()
-    chat = await event.get_chat()
-    check = sql.is_in_broadcastlist(keyword, chat.id)
-    if check:
-        return await edit_delete(
-            event,
-            f"This chat is already in this category {keyword}",
-            parse_mode=parse_pre,
-        )
-    sql.add_to_broadcastlist(keyword, chat.id)
-    await edit_delete(
-        event, f"This chat is Now added to category {keyword}", parse_mode=parse_pre
-    )
-    chat = await event.get_chat()
-    if BOTLOG:
-        try:
-            await event.client.send_message(
-                BOTLOG_CHATID,
-                f"The Chat {chat.title} is added to category {keyword}",
-                parse_mode=parse_pre,
+            await borg.forward_messages(int(channel.chat_id), previous_message)
+            sent_count += 1
+            await event.edit(
+                f"Sent : {sent_count}\nError : {error_count}\nTotal : {len(channels)}"
             )
-        except:
-            await event.client.send_message(
-                BOTLOG_CHATID,
-                f"The user {chat.first_name} is added to category {keyword}",
-                parse_mode=parse_pre,
-            )
-
-
-@borg.on(admin_cmd(pattern="rmfrom(?: |$)(.*)", command="rmfrom"))
-@borg.on(sudo_cmd(pattern="rmfrom(?: |$)(.*)", command="rmfrom", allow_sudo=True))
-async def catbroadcast_remove(event):
-    if event.fwd_from:
-        return
-    catinput_str = event.pattern_match.group(1)
-    if not catinput_str:
-        return await edit_delete(
-            event, "From which category should i remove this chat", parse_mode=parse_pre
-        )
-    keyword = catinput_str.lower()
-    chat = await event.get_chat()
-    check = sql.is_in_broadcastlist(keyword, chat.id)
-    if not check:
-        return await edit_delete(
-            event, f"This chat is not in the category {keyword}", parse_mode=parse_pre
-        )
-    sql.rm_from_broadcastlist(keyword, chat.id)
-    await edit_delete(
-        event,
-        f"This chat is Now removed from the category {keyword}",
-        parse_mode=parse_pre,
-    )
-    chat = await event.get_chat()
-    if BOTLOG:
-        try:
-            await event.client.send_message(
-                BOTLOG_CHATID,
-                f"The Chat {chat.title} is removed from category {keyword}",
-                parse_mode=parse_pre,
-            )
-        except:
-            await event.client.send_message(
-                BOTLOG_CHATID,
-                f"The user {chat.first_name} is removed from category {keyword}",
-                parse_mode=parse_pre,
-            )
-
-
-@borg.on(admin_cmd(pattern="list(?: |$)(.*)", command="list"))
-@borg.on(sudo_cmd(pattern="list(?: |$)(.*)", command="list", allow_sudo=True))
-async def catbroadcast_list(event):
-    if event.fwd_from:
-        return
-    catinput_str = event.pattern_match.group(1)
-    if not catinput_str:
-        return await edit_delete(
-            event,
-            "Which category Chats should i list ?\nCheck .listall",
-            parse_mode=parse_pre,
-        )
-    keyword = catinput_str.lower()
-    no_of_chats = sql.num_broadcastlist_chat(keyword)
-    if no_of_chats == 0:
-        return await edit_delete(
-            event,
-            f"There is no category with name {keyword}. Check '.listall'",
-            parse_mode=parse_pre,
-        )
-    chats = sql.get_chat_broadcastlist(keyword)
-    catevent = await edit_or_reply(
-        event, f"Fetching info of the category {keyword}", parse_mode=parse_pre
-    )
-    resultlist = f"**The category '{keyword}' have '{no_of_chats}' chats and these are listed below :**\n\n"
-    errorlist = ""
-    for chat in chats:
-        try:
-            chatinfo = await event.client.get_entity(int(chat))
+        except Exception as error:
             try:
-                if chatinfo.broadcast:
-                    resultlist += f" 👉 📢 **Channel** \n  •  **Name : **{chatinfo.title} \n  •  **id : **`{int(chat)}`\n\n"
-                else:
-                    resultlist += f" 👉 👥 **Group** \n  •  **Name : **{chatinfo.title} \n  •  **id : **`{int(chat)}`\n\n"
-            except AttributeError:
-                resultlist += f" 👉 👤 **User** \n  •  **Name : **{chatinfo.first_name} \n  •  **id : **`{int(chat)}`\n\n"
-        except ValueError:
-            errorlist += f" 👉 __This id {int(chat)} in database probably you may left the chat/channel or may be invalid id.\
-                            \nRemove this id from the database by using this command__ `.frmfrom {keyword} {int(chat)}` \n\n"
-    finaloutput = resultlist + errorlist
-    await edit_or_reply(catevent, finaloutput)
-
-
-@borg.on(admin_cmd(pattern="listall$", command="listall"))
-@borg.on(sudo_cmd(pattern="listall$", command="listall", allow_sudo=True))
-async def catbroadcast_list(event):
-    if event.fwd_from:
-        return
-    if sql.num_broadcastlist_chats() == 0:
-        return await edit_delete(
-            event,
-            "you haven't created at least one category  check info for more help",
-            parse_mode=parse_pre,
-        )
-    chats = sql.get_broadcastlist_chats()
-    resultext = "**Here are the list of your category's :**\n\n"
-    for i in chats:
-        resultext += f" 👉 `{i}` __contains {sql.num_broadcastlist_chat(i)} chats__\n"
-    await edit_or_reply(event, resultext)
-
-
-@borg.on(admin_cmd(pattern="frmfrom(?: |$)(.*)", command="frmfrom"))
-@borg.on(sudo_cmd(pattern="frmfrom(?: |$)(.*)", command="frmfrom", allow_sudo=True))
-async def catbroadcast_remove(event):
-    if event.fwd_from:
-        return
-    catinput_str = event.pattern_match.group(1)
-    if not catinput_str:
-        return await edit_delete(
-            event, "From which category should i remove this chat", parse_mode=parse_pre
-        )
-    args = catinput_str.split(" ")
-    if len(args) != 2:
-        return await edit_delete(
-            event,
-            "Use proper syntax as shown .frmfrom category_name groupid",
-            parse_mode=parse_pre,
-        )
-    if args[0].isnumeric():
-        groupid = args[0]
-        keyword = args[1].lower()
-    elif args[1].isnumeric():
-        groupid = args[1]
-        keyword = args[0].lower()
-    else:
-        return await edit_delete(
-            event,
-            "Use proper syntax as shown .frmfrom category_name groupid",
-            parse_mode=parse_pre,
-        )
-    keyword = keyword.lower()
-    check = sql.is_in_broadcastlist(keyword, int(groupid))
-    if not check:
-        return await edit_delete(
-            event,
-            f"This chat {groupid} is not in the category {keyword}",
-            parse_mode=parse_pre,
-        )
-    sql.rm_from_broadcastlist(keyword, groupid)
-    await edit_delete(
-        event,
-        f"This chat {groupid} is Now removed from the category {keyword}",
-        parse_mode=parse_pre,
-    )
-    chat = await event.get_chat()
-    if BOTLOG:
+                await borg.send_message(
+                    logs_id, f"Error in sending at {channel.chat_id}."
+                )
+                await borg.send_message(logs_id, "Error! " + str(error))
+                if error == "The message cannot be empty unless a file is provided":
+                    event.edit(
+                        "For sending files, upload in Saved Messages and reply .forward to in."
+                    )
+                    return
+            except:
+                pass
+            error_count += 1
+            await event.edit(f"Sent : {sent_count}\nError : {error_count}")
+    await event.edit(f"{sent_count} messages sent with {error_count} errors.")
+    if error_count > 0:
         try:
-            await event.client.send_message(
-                BOTLOG_CHATID,
-                f"The Chat {chat.title} is removed from category {keyword}",
-                parse_mode=parse_pre,
-            )
+            await borg.send_message(logs_id, f"{error_count} Errors")
         except:
-            await event.client.send_message(
-                BOTLOG_CHATID,
-                f"The user {chat.first_name} is removed from category {keyword}",
-                parse_mode=parse_pre,
-            )
+            await event.edit("Set up log channel for checking errors.")
 
 
-@borg.on(admin_cmd(pattern="delc(?: |$)(.*)", command="delc"))
-@borg.on(sudo_cmd(pattern="delc(?: |$)(.*)", command="delc", allow_sudo=True))
-async def catbroadcast_delete(event):
+@borg.on(admin_cmd("broadcast ?(.*)", outgoing=True))
+@borg.on(sudo_cmd("broadcast ?(.*)", allow_sudo=True))
+async def _(event):
     if event.fwd_from:
         return
-    catinput_str = event.pattern_match.group(1)
-    check1 = sql.num_broadcastlist_chat(catinput_str)
-    if check1 < 1:
-        return await edit_delete(
-            event,
-            f"Are you sure that there is category {catinput_str}",
-            parse_mode=parse_pre,
-        )
-    try:
-        sql.del_keyword_broadcastlist(catinput_str)
-        await edit_or_reply(
-            event,
-            f"Successfully deleted the category {catinput_str}",
-            parse_mode=parse_pre,
-        )
-    except Exception as e:
-        await edit_delete(
-            event,
-            str(e),
-            parse_mode=parse_pre,
-        )
+    if not event.is_reply:
+        await edit_or_reply(event, "Reply to a message to broadcast.")
+        return
+    channels = get_all_channels()
+    error_count = 0
+    sent_count = 0
+    await event.edit("Sending....")
+    if event.reply_to_msg_id:
+        previous_message = await event.get_reply_message()
+        if previous_message.sticker or previous_message.poll:
+            await event.edit("Reply .forward for stickers and polls.")
+            return
+        if (
+            previous_message.gif
+            or previous_message.audio
+            or previous_message.voice
+            or previous_message.video
+            or previous_message.video_note
+            or previous_message.contact
+            or previous_message.game
+            or previous_message.geo
+            or previous_message.invoice
+        ):  # Written by @HeisenbergTheDanger
+            await event.edit("Not supported. Try .forward")
+            return
+        if not previous_message.web_preview and previous_message.photo:
+            file = await borg.download_file(previous_message.media)
+            uploaded_doc = await borg.upload_file(file, file_name="img.png")
+            raw_text = previous_message.text
+            for channel in channels:
+                try:
+                    if previous_message.photo:
+                        await borg.send_file(
+                            int(channel.chat_id),
+                            InputMediaUploadedPhoto(file=uploaded_doc),
+                            force_document=False,
+                            caption=raw_text,
+                            link_preview=False,
+                        )
 
+                    sent_count += 1
+                    await event.edit(
+                        f"Sent : {sent_count}\nError : {error_count}\nTotal : {len(channels)}"
+                    )
+                except Exception as error:
+                    try:
+                        await borg.send_message(
+                            logs_id, f"Error in sending at {chat_id}."
+                        )
+                        await borg.send_message(logs_id, "Error! " + str(error))
+                        if (
+                            error
+                            == "The message cannot be empty unless a file is provided"
+                        ):
+                            event.edit(
+                                "For sending files, upload in Saved Messages and reply .forward to in."
+                            )
+                            return
+                    except:
+                        pass
+                    error_count += 1
+                    await event.edit(
+                        f"Sent : {sent_count}\nError : {error_count}\nTotal : {len(channels)}"
+                    )
+            await event.edit(f"{sent_count} messages sent with {error_count} errors.")
+            if error_count > 0:
+                try:
+                    await borg.send_message(logs_id, f"{error_count} Errors")
+                except:
+                    pass
+        else:
+            raw_text = previous_message.text
+            for channel in channels:
+                try:
+                    await borg.send_message(
+                        int(channel.chat_id), raw_text, link_preview=False
+                    )
+                    sent_count += 1
+                    await event.edit(
+                        f"Sent : {sent_count}\nError : {error_count}\nTotal : {len(channels)}"
+                    )
+                except Exception as error:
+                    try:
+                        await borg.send_message(
+                            logs_id, f"Error in sending at {channel.chat_id}."
+                        )
+                        await borg.send_message(logs_id, "Error! " + str(error))
+                        if (
+                            error
+                            == "The message cannot be empty unless a file is provided"
+                        ):
+                            event.edit(
+                                "For sending files, upload in Saved Messages and reply .forward to in."
+                            )
+                            return
+                    except:
+                        pass
+                    error_count += 1
+                    await event.edit(
+                        f"Sent : {sent_count}\nError : {error_count}\nTotal : {len(channels)}"
+                    )
+            await event.edit(f"{sent_count} messages sent with {error_count} errors.")
+            if error_count > 0:
+                try:
+                    await borg.send_message(logs_id, f"{error_count} Errors")
+                except:
+                    await event.edit("Set up log channel for checking errors.")
+
+
+# Written by @HeisenbergTheDanger
+
+
+@borg.on(admin_cmd("badd ?(.*)", outgoing=True))
+@borg.on(sudo_cmd("badd ?(.*)", allow_sudo=True))
+async def add_ch(event):
+    if event.fwd_from:
+        return
+    if event.reply_to_msg_id:
+        await edit_or_reply(event, "Adding...")
+        previous_message = await event.get_reply_message()
+        raw_text = previous_message.text
+        lines = raw_text.split("\n")
+        length = len(lines)
+        for line_number in range(1, length - 2):
+            channel_id = lines[line_number][4:-1]
+            if not in_channels(channel_id):
+                add_channel(channel_id)
+        await event.edit("Channels added!")
+        await asyncio.sleep(3)
+        await event.delete()
+        return
+    chat_id = event.chat_id
+    try:
+        if int(chat_id) == logs_id:
+            return
+    except:
+        pass
+    if not in_channels(chat_id):
+        add_channel(chat_id)
+        await event.edit("`Added Successfuly To List`")
+        await asyncio.sleep(3)
+        await event.delete()
+    elif in_channels(chat_id):
+        await event.edit("`Channel is already is database!`")
+        await asyncio.sleep(3)
+        await event.delete()
+
+
+@borg.on(admin_cmd("brm ?(.*)", outgoing=True))
+@borg.on(sudo_cmd("brm ?(.*)", allow_sudo=True))
+async def remove_ch(event):
+    if event.fwd_from:
+        return
+    chat_id = event.pattern_match.group(1)
+    if chat_id == "all":
+        await edit_or_reply(event, "Removing...")
+        channels = get_all_channels()
+        for channel in channels:
+            rm_channel(channel.chat_id)
+        await event.edit("Database cleared.")
+        return
+
+    if in_channels(chat_id):
+        rm_channel(chat_id)
+        await event.edit("Removed from database")
+        await asyncio.sleep(3)
+        await event.delete()
+    elif in_channels(event.chat_id):
+        rm_channel(event.chat_id)
+        await event.edit("Removed from database")
+        await asyncio.sleep(3)
+        await event.delete()
+    elif not in_channels(event.chat_id):
+        await event.edit("Channel is already removed from database. ")
+        await asyncio.sleep(3)
+        await event.delete()
+
+
+@borg.on(admin_cmd("listchannels", allow_sudo=True))
+async def list(event):
+    if event.fwd_from:
+        return
+    channels = get_all_channels()
+    msg = "Channels in database:\n"
+    for channel in channels:
+        msg += f"=> `{channel.chat_id}`\n"
+    msg += f"\nTotal {len(channels)} channels."
+    if len(msg) > Config.MAX_MESSAGE_SIZE_LIMIT:
+        with io.BytesIO(str.encode(msg)) as out_file:
+            out_file.name = "channels.text"
+            await borg.send_file(
+                event.chat_id,
+                out_file,
+                force_document=True,
+                allow_cache=False,
+                caption="Channels in database",
+                reply_to=event,
+            )
+            await event.delete()
+    else:
+        await event.edit(msg)
