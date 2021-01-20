@@ -3,7 +3,7 @@ import asyncio
 
 from telethon.tl.types import InputMediaUploadedPhoto
 
-from jarvis.plugins.sql_helper.broadcast_sql import (
+from userbot.plugins.sql_helper.broadcast_sql import (
     add_channel,
     get_all_channels,
     in_channels,
