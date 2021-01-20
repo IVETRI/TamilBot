@@ -15,7 +15,6 @@ logs_id = Var.PLUGIN_CHANNEL
 
 
 @borg.on(admin_cmd("bforward ?(.*)", outgoing=True))
-@borg.on(sudo_cmd("bforward ?(.*)", allow_sudo=True))
 async def forw(event):
     if event.fwd_from:
         return
@@ -62,7 +61,6 @@ async def forw(event):
 
 
 @borg.on(admin_cmd("broadcast ?(.*)", outgoing=True))
-@borg.on(sudo_cmd("broadcast ?(.*)", allow_sudo=True))
 async def _(event):
     if event.fwd_from:
         return
@@ -179,7 +177,6 @@ async def _(event):
 
 
 @borg.on(admin_cmd("badd ?(.*)", outgoing=True))
-@borg.on(sudo_cmd("badd ?(.*)", allow_sudo=True))
 async def add_ch(event):
     if event.fwd_from:
         return
@@ -215,7 +212,6 @@ async def add_ch(event):
 
 
 @borg.on(admin_cmd("brm ?(.*)", outgoing=True))
-@borg.on(sudo_cmd("brm ?(.*)", allow_sudo=True))
 async def remove_ch(event):
     if event.fwd_from:
         return
@@ -244,7 +240,7 @@ async def remove_ch(event):
         await event.delete()
 
 
-@borg.on(admin_cmd("listchannels", allow_sudo=True))
+@borg.on(admin_cmd("listchannels"))
 async def list(event):
     if event.fwd_from:
         return
@@ -254,7 +250,7 @@ async def list(event):
         msg += f"=> `{channel.chat_id}`\n"
     msg += f"\nTotal {len(channels)} channels."
     if len(msg) > Config.MAX_MESSAGE_SIZE_LIMIT:
-        with io.BytesIO(str.encode(msg)) as out_file:
+        with io.BytesIO(str.encode(msg) Guy) as out_file:
             out_file.name = "channels.text"
             await borg.send_file(
                 event.chat_id,
