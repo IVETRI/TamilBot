@@ -11,12 +11,12 @@ PREV_REPLY_MESSAGE = {}
 
 
 DEFAULTUSER = str(ALIVE_NAME) if ALIVE_NAME else "Set ALIVE_NAME in config vars in Heroku"
-USER_BOT_WARN_ZERO = "`You were spamming my peru master's inbox, henceforth your retarded lame ass has been blocked by my master's userbot.` "
+USER_BOT_WARN_ZERO = "`என்னுடைய தனிப்பதிவில் நீங்கள் Spam செய்தீர்கள், இனி உங்களால் எனக்கு மெசேஜ் அனுப்ப முடியாது...` "
 USER_BOT_NO_WARN = ("[──▄█▀█▄─────────██ \n▄████████▄───▄▀█▄▄▄▄ \n██▀▼▼▼▼▼─▄▀──█▄▄ \n█████▄▲▲▲─▄▄▄▀───▀▄ \n██████▀▀▀▀─▀────────▀▀](tg://user?id=1492186775)\n\n"
-                    "`Hello, this is Protected Security Service.You have found your way here to my master,`"
-                    f"{DEFAULTUSER}`'s inbox.\n\n"
-                    "Leave your name, phone number, address and 10k$ and hopefully you'll get a reply within 2 light years.`\n\n"
-                    "** Send** `/start` ** so that we can decide why you're here.**")
+                    "`வணக்கம், இது பாதுகாக்கப்பட்ட பாதுகாப்பு சேவை.`"
+                    f"{DEFAULTUSER}`'-ன் தனிப்பதிவு.x.\n\n"
+                    "உங்கள் பெயர் மற்றும் நீங்கள் எதன் காரணமாக என்னை தொடர்பு கொள்ள விரும்புகிறீர்கள் என்பதை சுருக்கமாக கூறவும்....`\n\n"
+                    "** Send** `/start` ** எனவே நீங்கள் ஏன் இங்கே இருக்கிறீர்கள் என்பதை நாங்கள் தீர்மானிக்க முடியும்.**")
 
 
 if Var.PRIVATE_GROUP_ID is not None:
