@@ -4,7 +4,6 @@
 from userbot.util import admin_cmd
 
 from userbot import ALIVE_NAME, CMD_HELP
-from userbot.modules import currentversion
 
 DEFAULTUSER = str(ALIVE_NAME) if ALIVE_NAME else "tamiluserbot"
 PM_IMG = "https://telegra.ph/file/cb72a96f40d9026e3341d.jpg"
@@ -20,7 +19,7 @@ pm_caption += "➥ **Heroku Database** : `AWS - Working Properly`\n\n"
 pm_caption += "➥ **License** : [GNU General Public License v3.0](github.com/ivetri/tamilbot/blob/master/LICENSE)\n"
 pm_caption += "➥ **Copyright** : By [ivetri@Github](GitHub.com/ivetri)\n"
 pm_caption += "➥ **Check Stats By Doing** `.stat`. \n\n"
-pm_caption += "[🇮🇳 Deploy TamilUserbot 🇮🇳](https://t.me/tamiluserbot)"
+pm_caption += "[🇮🇳 TamilUserbot 🇮🇳](https://t.me/tamiluserbot)"
 
 
 @borg.on(admin_cmd(pattern=r"alive"))
