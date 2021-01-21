@@ -4,7 +4,7 @@ import json
 import random
 import re
 import io
-Import os
+import os
 import urllib
 from re import findall
 import requests
