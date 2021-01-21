@@ -6,7 +6,6 @@ import re
 import io
 import urllib
 from re import findall
-from urllib.parse import quote
 import requests
 from telethon import Button, custom, events, functions
 from userbot import ALIVE_NAME, CMD_LIST
