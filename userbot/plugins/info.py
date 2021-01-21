@@ -20,7 +20,6 @@ TMP_DOWNLOAD_DIRECTORY = Config.TMP_DOWNLOAD_DIRECTORY
 
 
 @bot.on(admin_cmd(pattern="userinfo(?: |$)(.*)"))
-@bot.on(sudo_cmd(pattern="userinfo(?: |$)(.*)", allow_sudo=True))
 async def _(event):
     if event.fwd_from:
         return
