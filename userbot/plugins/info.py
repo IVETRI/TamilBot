@@ -15,7 +15,6 @@ from telethon.tl.types import MessageEntityMentionName
 from telethon.utils import get_input_location
 
 from ..utils import admin_cmd, edit_or_reply, sudo_cmd
-from . import CMD_HELP, LOGS
 
 TMP_DOWNLOAD_DIRECTORY = Config.TMP_DOWNLOAD_DIRECTORY
 
