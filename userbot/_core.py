@@ -63,7 +63,7 @@ async def send(event):
     await event.delete()
     
 
-@borg.on(admin_cmd(pattern=r"unload (?P<shortname>\w+)$", outgoing=True))
+@command(admin_cmd(pattern=r"unload (?P<shortname>\w+)$", outgoing=True))
 async def unload(event):
     if event.fwd_from:
         return
@@ -77,7 +77,7 @@ async def unload(event):
         )
 
 
-@borg.on(admin_cmd(pattern=r"load (?P<shortname>\w+)$", outgoing=True))
+@command(admin_cmd(pattern=r"load (?P<shortname>\w+)$", outgoing=True))
 async def load(event):
     if event.fwd_from:
         return
