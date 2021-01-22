@@ -60,7 +60,7 @@ async def send(event):
         caption=men,
         force_document=True,
         allow_cache=False,
-        reply_to=message_id,
+        reply_to=event.message.reply_to_msg_id
     )
     await asyncio.sleep(5)
     await event.delete()
