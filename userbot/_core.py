@@ -65,7 +65,6 @@ async def send(event):
     await asyncio.sleep(5)
     await event.delete()
     
-
 @command(pattern="^.unload (?P<shortname>\w+)$", outgoing=True)
 async def unload(event):
     if event.fwd_from:
@@ -73,12 +72,9 @@ async def unload(event):
     shortname = event.pattern_match["shortname"]
     try:
         remove_plugin(shortname)
-        await edit_or_reply(event, f"Unloaded {shortname} successfully")
+        await event.edit(f"Unloaded {shortname} successfully")
     except Exception as e:
-        await edit_or_reply(
-            event, "Successfully unload {shortname}\n{}".format(shortname, str(e))
-        )
-
+        await event.edit("Successfully unload {shortname}\n{}".format(shortname, str(e)))
 
 @command(pattern="^.load (?P<shortname>\w+)$", outgoing=True)
 async def load(event):
@@ -88,23 +84,10 @@ async def load(event):
     try:
         try:
             remove_plugin(shortname)
-        except BaseException:
+        except:
             pass
         load_module(shortname)
-        await edit_or_reply(event, f"Successfully loaded {shortname}")
+        await event.edit(f"Successfully loaded {shortname}")
     except Exception as e:
-        await edit_or_reply(
-            event,
-            f"Could not load {shortname} because of the following error.\n{str(e)}",
-        )
-    await event.client.send_file(  # pylint:disable=E0602
-        event.chat_id,
-        the_plugin_file,
-        thumb=tamilthumb,
-        caption=men,
-        force_document=True,
-        allow_cache=False,
-        reply_to=message_id,
-    )
-    await asyncio.sleep(5)
-    await event.delete()
+        await event.edit(f"Could not load {shortname} because of the following error.\n{str(e)}")
+
