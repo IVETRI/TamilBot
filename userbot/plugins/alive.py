@@ -1,7 +1,7 @@
 """Check if tamilbot alive. If you change these, you become the gayest gay such that even the gay world will disown you."""
 # CREDITS: @WhySooSerious, @Sur_vivor
 # modified by @saravanakrish
-from userbot.util import admin_cmd
+from userbot.utils import admin_cmd
 from userbot.uniborgconfigs import Config
 from userbot import ALIVE_NAME, CMD_HELP
 
