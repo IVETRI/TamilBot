@@ -43,21 +43,25 @@ async def send(event):
     if event.fwd_from:
         return
     message_id = event.message.id
-    input_str = event.pattern_match["shortname"]
-    the_plugin_file = "./userbot/plugins/{}.py".format(input_str)
+    input_str = event.pattern_match.group(1)
     start = datetime.now()
+    the_plugin_file = "./fridaybot/modules/{}.py".format(input_str)
+    end = datetime.now()
+    (end - start).seconds
+    men = f"Plugin Name - {input_str}.py \nUploaded By Friday"
     await event.client.send_file(  # pylint:disable=E0602
         event.chat_id,
         the_plugin_file,
+        thumb=fridaythumb,
+        caption=men,
         force_document=True,
         allow_cache=False,
-        reply_to=event.message.reply_to_msg_id
+        reply_to=message_id,
     )
-    end = datetime.now()
-    time_taken_in_ms = (end - start).seconds
-    await event.edit("Uploaded {} in {} seconds".format(input_str, time_taken_in_ms))
-    await asyncio.sleep(DELETE_TIMEOUT)
+    await asyncio.sleep(5)
     await event.delete()
+
+
 
 @command(pattern="^.unload (?P<shortname>\w+)$", outgoing=True)
 async def unload(event):
