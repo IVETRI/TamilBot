@@ -78,7 +78,6 @@ async def unload(event):
 
 
 @borg.on(admin_cmd(pattern=r"load (?P<shortname>\w+)$", outgoing=True))
-@borg.on(sudo_cmd(pattern=r"load (?P<shortname>\w+)$", allow_sudo=True))
 async def load(event):
     if event.fwd_from:
         return
