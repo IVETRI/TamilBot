@@ -52,7 +52,7 @@ async def send(event):
     the_plugin_file = "./userbot/plugins/{}.py".format(input_str)
     end = datetime.now()
     ms = (end - start).seconds
-    men = f"__**✨ Plugin Name:- {input_str} .**__\n__**✨ Uploaded in {ms} seconds.**__\n__**✨ **➥ Uploaded by :-**__ [{DEFAULTUSER}](tg://user?id={TAID})"
+    men = f"__**✨ Plugin Name:- {input_str} .**__\n__**✨ Uploaded in {ms} seconds.**__\n__**✨Uploaded by :-**__ [{DEFAULTUSER}](tg://user?id={TAID})")
     await event.client.send_file(  # pylint:disable=E0602
         event.chat_id,
         the_plugin_file,
