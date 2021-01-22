@@ -11,6 +11,9 @@ import traceback
 import os
 from datetime import datetime
 
+tamilthumb = "./resources/TamilBot.jpeg
+
+
 DELETE_TIMEOUT = 5
 DEFAULTUSER = str(ALIVE_NAME) if ALIVE_NAME else "TamilBot"
 TAID = bot.uid
