@@ -106,6 +106,8 @@ if ENV:
         MONGO_URI = os.environ.get("MONGO_URI", None)
         #Lydia API
         LYDIA_API = os.environ.get("LYDIA_API",None)
+        PRIVATE_GROUP_ID = int(os.environ.get("PRIVATE_GROUP_ID", False))
+        ALIVE_IMAGE = os.environ.get("ALIVE_IMAGE", "https://telegra.ph/file/dcce4a21fcab47cea0333.jpg")
         # PLUGIN_CHANNEL = int(os.environ.get("PLUGIN_CHANNEL", None))
 else:
     class Config(object):
