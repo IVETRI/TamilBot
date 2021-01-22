@@ -60,7 +60,7 @@ async def send(event):
         reply_to=message_id,
     )
     await asyncio.sleep(5)
-    await event.delete() 
+    await event.delete()
     else:
         await edit_or_reply(event, "404: File Not Found")
 
