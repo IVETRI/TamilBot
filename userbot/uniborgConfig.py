@@ -107,6 +107,9 @@ if ENV:
         #Lydia API
         LYDIA_API = os.environ.get("LYDIA_API",None)
         PRIVATE_GROUP_ID = int(os.environ.get("PRIVATE_GROUP_ID", False))
+        ALIVE_IMAGE = os.environ.get(
+            "ALIVE_IMAGE", "https://telegra.ph/file/cb72a96f40d9026e3341d.jpg""
+        )
         # PLUGIN_CHANNEL = int(os.environ.get("PLUGIN_CHANNEL", None))
 else:
     class Config(object):
