@@ -2,11 +2,12 @@
 # CREDITS: @WhySooSerious, @Sur_vivor
 # modified by @saravanakrish
 from userbot.util import admin_cmd
-
+from userbot.uniborgconfig import config
 from userbot import ALIVE_NAME, CMD_HELP
 
 DEFAULTUSER = str(ALIVE_NAME) if ALIVE_NAME else "tamiluserbot"
-PM_IMG = "https://telegra.ph/file/cb72a96f40d9026e3341d.jpg"
+
+PM_IMG = config.PMPERMIT_PIC
 pm_caption = "➥ **TAMILBOT IS:** `ONLINE`\n\n"
 pm_caption += "➥ **SYSTEMS STATS**\n"
 pm_caption += "➥ **Telethon Version:** `1.15.0` \n"
