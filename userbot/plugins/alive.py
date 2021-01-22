@@ -7,7 +7,7 @@ from userbot import ALIVE_NAME, CMD_HELP
 
 DEFAULTUSER = str(ALIVE_NAME) if ALIVE_NAME else "tamiluserbot"
 
-PM_IMG = config.PMPERMIT_PIC
+PM_IMG = Config.ALIVE_IMAGE
 pm_caption = "➥ **TAMILBOT IS:** `ONLINE`\n\n"
 pm_caption += "➥ **SYSTEMS STATS**\n"
 pm_caption += "➥ **Telethon Version:** `1.15.0` \n"
