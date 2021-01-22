@@ -9,10 +9,12 @@ import sys
 import asyncio
 import traceback
 import os
-import userbot.utils
+import userbot.utils import ALIVE_NAME
 from datetime import datetime
 
 DELETE_TIMEOUT = 5
+DEFAULTUSER = str(ALIVE_NAME) if ALIVE_NAME else "Tamilbot"
+TAID = bot.uid
 
 @command(pattern="^.install", outgoing=True)
 async def install(event):
@@ -47,8 +49,46 @@ async def send(event):
     start = datetime.now()
     the_plugin_file = "./fridaybot/modules/{}.py".format(input_str)
     end = datetime.now()
-    (end - start).seconds
-    men = f"Plugin Name - {input_str}.py \nUploaded By Friday"
+    ms = (end - start).seconds
+    men = f"__**✨ Plugin Name:- {input_str} .**__\n__**✨ Uploaded in {ms} seconds.**__\n__**✨ Uploaded by :-**__ [{DEFAULTUSER}](tg://user?id={TAID})"
+        )
+    else:
+        await edit_or_reply(event, "404: File Not Found")
+
+
+@borg.on(admin_cmd(pattern=r"unload (?P<shortname>\w+)$", outgoing=True))
+@borg.on(sudo_cmd(pattern=r"unload (?P<shortname>\w+)$", allow_sudo=True))
+async def unload(event):
+    if event.fwd_from:
+        return
+    shortname = event.pattern_match["shortname"]
+    try:
+        remove_plugin(shortname)
+        await edit_or_reply(event, f"Unloaded {shortname} successfully")
+    except Exception as e:
+        await edit_or_reply(
+            event, "Successfully unload {shortname}\n{}".format(shortname, str(e))
+        )
+
+
+@borg.on(admin_cmd(pattern=r"load (?P<shortname>\w+)$", outgoing=True))
+@borg.on(sudo_cmd(pattern=r"load (?P<shortname>\w+)$", allow_sudo=True))
+async def load(event):
+    if event.fwd_from:
+        return
+    shortname = event.pattern_match["shortname"]
+    try:
+        try:
+            remove_plugin(shortname)
+        except BaseException:
+            pass
+        load_module(shortname)
+        await edit_or_reply(event, f"Successfully loaded {shortname}")
+    except Exception as e:
+        await edit_or_reply(
+            event,
+            f"Could not load {shortname} because of the following error.\n{str(e)}",
+        )
     await event.client.send_file(  # pylint:disable=E0602
         event.chat_id,
         the_plugin_file,
