@@ -1,6 +1,6 @@
 from userbot import bot
 from telethon import events
-from userbot.utils import command, remove_plugin, load_module
+from userbot.utils import command, remove_plugin, load_module, ALIVE_NAME
 from var import Var
 import importlib
 from pathlib import Path
@@ -47,7 +47,7 @@ async def send(event):
     message_id = event.message.id
     input_str = event.pattern_match.group(1)
     start = datetime.now()
-    the_plugin_file = "./fridaybot/modules/{}.py".format(input_str)
+    the_plugin_file = "./TamilBot/plugins/{}.py".format(input_str)
     end = datetime.now()
     ms = (end - start).seconds
     men = f"__**✨ Plugin Name:- {input_str} .**__\n__**✨ Uploaded in {ms} seconds.**__\n__**✨ Uploaded by :-**__ [{DEFAULTUSER}](tg://user?id={TAID})"
