@@ -61,9 +61,7 @@ async def send(event):
     )
     await asyncio.sleep(5)
     await event.delete()
-   else:
-        await edit_or_reply(event, "404: File Not Found")
-
+    
 
 @borg.on(admin_cmd(pattern=r"unload (?P<shortname>\w+)$", outgoing=True))
 @borg.on(sudo_cmd(pattern=r"unload (?P<shortname>\w+)$", allow_sudo=True))
