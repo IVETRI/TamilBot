@@ -166,4 +166,3 @@ async def _(event):
         USERAFK_ON = f"on: {reason}"
         if reason:
             await (event, f"**I shall be Going afk! because ~** {reason}", 5)
-                )
