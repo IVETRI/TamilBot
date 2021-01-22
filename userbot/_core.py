@@ -47,9 +47,9 @@ async def send(event):
     if event.fwd_from:
         return
     message_id = event.message.id
-    input_str = event.pattern_match.group(1)
+    input_str = event.pattern_match["shortname"]
     start = datetime.now()
-    the_plugin_file = "./TamilBot/plugins/{}.py".format(input_str)
+    the_plugin_file = "./userbot/plugins/{}.py".format(input_str)
     end = datetime.now()
     ms = (end - start).seconds
     men = f"__**✨ Plugin Name:- {input_str} .**__\n__**✨ Uploaded in {ms} seconds.**__\n__**✨ **➥ Uploaded by :-**__ [{DEFAULTUSER}](tg://user?id={TAID})"
