@@ -1,4 +1,4 @@
-from userbot import bot, ALAIVE_NAME
+from userbot import bot, ALIVE_NAME
 from telethon import events
 from userbot.utils import command, remove_plugin, load_module
 from var import Var
