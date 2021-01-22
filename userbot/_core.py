@@ -11,7 +11,7 @@ import traceback
 import os
 from datetime import datetime
 
-tamilthumb = "./resources/TamilBot.jpeg
+tamilthumb = "./resources/TamilBot.jpg"
 
 
 DELETE_TIMEOUT = 5
