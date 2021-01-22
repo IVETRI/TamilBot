@@ -2,7 +2,7 @@
 # CREDITS: @WhySooSerious, @Sur_vivor
 # modified by @saravanakrish
 from userbot.util import admin_cmd
-from userbot.uniborgconfig import config
+from userbot.Uniborgconfigs import config
 from userbot import ALIVE_NAME, CMD_HELP
 
 DEFAULTUSER = str(ALIVE_NAME) if ALIVE_NAME else "tamiluserbot"
