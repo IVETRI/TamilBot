@@ -9,11 +9,10 @@ import sys
 import asyncio
 import traceback
 import os
-import userbot.utils import ALIVE_NAME
 from datetime import datetime
 
 DELETE_TIMEOUT = 5
-DEFAULTUSER = str(ALIVE_NAME) if ALIVE_NAME else "Tamilbot"
+DEFAULTUSER = str(ALIVE_NAME) if ALIVE_NAME else "TamilBot"
 TAID = bot.uid
 
 @command(pattern="^.install", outgoing=True)
