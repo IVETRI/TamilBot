@@ -77,10 +77,10 @@ async def on_afk(event):
     if USERAFK_ON and not (await event.get_sender()).bot:
         msg = None
         message_to_reply = (
-            f"__My Master Has Been In afk For__ `{total_afk_time}`\nWhere He Is: ONLY GOD KNOWS "
-            + f"\n\n__I promise He'll back in a few light years__\n**REASON**: {reason}"
+            f"__நான் Offline சென்று__ `{total_afk_time}`ஆகிறது😝.\nஎன்ன கொஞ்ச நேரம் நிம்மதியாக விடுங்க... 🚶‍♂🚶‍♂🚶‍♂ "
+            + f"\n\n__நான் திரும்பி வந்ததும் உங்களுக்கு பதிலளிக்கிறேன் 😊__\n**நான் Offline செல்ல காரணம்**: {reason}"
             if reason
-            else f"**Heya!**\n__I am currently unavailable. Since when, you ask? For {total_afk_time} I guess.__\n\nWhen will I be back? Soon __Whenever I feel like it__**( ಠ ʖ̯ ಠ)**  "
+            else f"**வனக்கம்!**\n__நான் Offline-ல் உள்ளேன். எப்போது, நீங்கள் கேட்க? {total_afk_time} -க்கு நான் நினைக்கிறேன்.__\n\nநான் எப்போது திரும்பி வருவேன்? விரைவில் __நான் அதை உணரும்போதெல்லாம்__**( ಠ ʖ̯ ಠ)**  "
         )
         if event.chat_id not in Config.UB_BLACK_LIST_CHAT:
             msg = await event.reply(message_to_reply)
@@ -127,10 +127,10 @@ async def _(event):
         USERAFK_ON = f"on: {reason}"
         if reason:
             await borg.send_message(
-                event.chat_id, f"**I shall be Going afk!** __because ~ {reason}__"
+                event.chat_id, f"**நான் Offline செல்கிறேன்!** __ஏனெனில்,  {reason}__"
             )
         else:
-            await borg.send_message(event.chat_id, f"**I am Going afk!**")
+            await borg.send_message(event.chat_id, f"**நான் Offline செல்கிறேன்!**")
         await asyncio.sleep(5)
         await event.delete()
         if BOTLOG:
