@@ -84,14 +84,14 @@ async def on_plug_in_callback_query_handler(event):
 )
 async def on_plug_in_callback_query_handler(event):
     if not event.query.user_id == bot.uid:
-        sedok = "Who The Fuck Are You? Get Your Own Friday."
+        sedok = "Don’t use mine 😒 get your own @tamiluserbot"
         await event.answer(sedok, cache_time=0, alert=True)
         return
     plugin_name = event.data_match.group(1).decode("UTF-8")
     if plugin_name in CMD_LIST:
         help_string = f"**💡 PLUGIN NAME 💡 :** `{plugin_name}` \n{CMD_LIST[plugin_name]}"
     reply_pop_up_alert = help_string
-    reply_pop_up_alert += "\n\n**(C) @FRIDAYOT** ".format(plugin_name)
+    reply_pop_up_alert += "\n\n**(C) @TamilSupport** ".format(plugin_name)
     if len(reply_pop_up_alert) >= 4096:
         crackexy = "`Pasting Your Help Menu.`"
         await event.answer(crackexy, cache_time=0, alert=True)
@@ -142,14 +142,14 @@ async def rip(event):
 @tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"backme")))
 async def sed(event):
     if event.query.user_id != bot.uid:
-        sedok = "Who The Fuck Are You? Get Your Own Friday."
+        sedok = "Don’t use mine 😒 get your own @tamiluserbot"
         await event.answer(sedok, cache_time=0, alert=True)
         return
     await event.answer("Back", cache_time=0, alert=False)
     # This Is Copy of Above Code. (C) @SpEcHiDe
     buttons = paginate_help(0, CMD_LIST, "helpme")
-    sed = f"""Friday Userbot Modules Are Listed Here !\n
-For More Help or Support Visit @FridayOT \nCurrently Loaded Plugins: {len(CMD_LIST)}"""
+    sed = f"""Tamil UserBot Modules Are Listed Here !\n
+For More Help or Support Visit @TamilSupport \nCurrently Loaded Plugins: {len(CMD_LIST)}"""
     await event.edit(message=sed, buttons=buttons)
 
 
@@ -290,7 +290,7 @@ def paginate_help(page_number, loaded_plugins, prefix):
     if len(pairs) > number_of_rows:
         pairs = pairs[modulo_page * number_of_rows:number_of_rows * (modulo_page + 1)] + \
             [
-            (custom.Button.inline("👈🏻Previous", data="{}_prev({})".format(prefix, modulo_page)),
-             custom.Button.inline("Next👉🏻", data="{}_next({})".format(prefix, modulo_page)))
+            (custom.Button.inline("⮈⮈Previous", data="{}_prev({})".format(prefix, modulo_page)),
+             custom.Button.inline("Next➲➲", data="{}_next({})".format(prefix, modulo_page)))
         ]
     return pairs
