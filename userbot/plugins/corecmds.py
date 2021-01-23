@@ -3,8 +3,8 @@ import os
 from datetime import datetime
 from pathlib import Path
 
-from .. import ALIVE_NAME
-from ..utils import admin_cmd, edit_or_reply, load_module, remove_plugin, sudo_cmd
+from userbot import ALIVE_NAME
+from userbot.utils import admin_cmd, edit_or_reply, load_module, remove_plugin
 
 DELETE_TIMEOUT = 5
 thumb_image_path = "./resources/TamilBot.jpg"
