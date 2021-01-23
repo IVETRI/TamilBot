@@ -89,7 +89,7 @@ async def on_plug_in_callback_query_handler(event):
         return
     plugin_name = event.data_match.group(1).decode("UTF-8")
     if plugin_name in CMD_LIST:
-        help_string = f"**💡 PLUGIN NAME 💡 :** `{plugin_name}` \n{CMD_LIST[plugin_name]}"
+        help_string = f"**💫 PLUGIN NAME 💫 :** `{plugin_name}` \n{CMD_LIST[plugin_name]}"
     reply_pop_up_alert = help_string
     reply_pop_up_alert += "\n\n**(C) @TamilSupport** ".format(plugin_name)
     if len(reply_pop_up_alert) >= 4096:
@@ -290,7 +290,7 @@ def paginate_help(page_number, loaded_plugins, prefix):
     if len(pairs) > number_of_rows:
         pairs = pairs[modulo_page * number_of_rows:number_of_rows * (modulo_page + 1)] + \
             [
-            (custom.Button.inline("⮈⮈Previous", data="{}_prev({})".format(prefix, modulo_page)),
-             custom.Button.inline("Next➲➲", data="{}_next({})".format(prefix, modulo_page)))
+            (custom.Button.inline("⪓Previous", data="{}_prev({})".format(prefix, modulo_page)),
+             custom.Button.inline("Next⪔", data="{}_next({})".format(prefix, modulo_page)))
         ]
     return pairs
