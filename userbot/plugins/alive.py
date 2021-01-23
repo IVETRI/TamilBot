@@ -20,9 +20,8 @@ pm_caption += f"⨠ **Version** : `6.5`\n"
 pm_caption += f"⨠ **My Boss** : {DEFAULTUSER} \n"
 pm_caption += "⨠ **Heroku Database** : `AWS - Working Properly`💥\n\n"
 pm_caption += "⫸ **License** : [MIT License](github.com/ivetri/tamilbot/blob/master/LICENSE) ✔\n"
-pm_caption += "⫸ **Copyrights** : © By [IVETRI](GitHub.com/ivetri)\n"
-pm_caption += "⫸ **Check Stats By Doing** `.stat`. \n\n"
-pm_caption += "[🇮🇳 TamilUserbot 🇮🇳](https://t.me/tamiluserbot)"
+pm_caption += "⫸ **Copyrights** : © By [IVETRI](GitHub.com/ivetri)\n\n"
+pm_caption += "⭕️➖➖[🇮🇳 TamilBot 🇮🇳](https://t.me/tamiluserbot)➖➖⭕️"
 
 
 @borg.on(admin_cmd(pattern=r"alive"))
