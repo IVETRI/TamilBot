@@ -47,7 +47,6 @@ for name in files:
         shortname = path1.stem
         load_module(shortname.replace(".py", ""))
 
-import userbot._core
 
 print("ஆம்! உங்கள் பயனர் போட் அதிகாரப்பூர்வமாக செயல்படுகிறது 🥳.")
 
