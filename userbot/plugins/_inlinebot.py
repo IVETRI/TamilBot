@@ -13,7 +13,7 @@ from userbot import ALIVE_NAME, CMD_LIST
 
 PMPERMIT_PIC = os.environ.get("PMPERMIT_PIC", None)
 if PMPERMIT_PIC is None:
-    WARN_PIC = "https://telegra.ph/file/53aed76a90e38779161b1.jpg"
+    WARN_PIC = "https://telegra.ph/file/2790938cacb9aa80d478c.jpg"
 else:
     WARN_PIC = PMPERMIT_PIC
 LOG_CHAT = Config.PRIVATE_GROUP_ID
@@ -290,7 +290,7 @@ def paginate_help(page_number, loaded_plugins, prefix):
     if len(pairs) > number_of_rows:
         pairs = pairs[modulo_page * number_of_rows:number_of_rows * (modulo_page + 1)] + \
             [
-            (custom.Button.inline("⪓Previous", data="{}_prev({})".format(prefix, modulo_page)),
-             custom.Button.inline("Next⪔", data="{}_next({})".format(prefix, modulo_page)))
+            (custom.Button.inline("⪬ Previous", data="{}_prev({})".format(prefix, modulo_page)),
+             custom.Button.inline("Next ⪭", data="{}_next({})".format(prefix, modulo_page)))
         ]
     return pairs
