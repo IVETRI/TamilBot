@@ -7,7 +7,7 @@ from .. import ALIVE_NAME
 from ..utils import admin_cmd, edit_or_reply, load_module, remove_plugin, sudo_cmd
 
 DELETE_TIMEOUT = 5
-thumb_image_path = Config.TMP_DOWNLOAD_DIRECTORY + "/thumb_image.jpg"
+thumb_image_path = "./resources/TamilBot.jpg"
 DEFAULTUSER = str(ALIVE_NAME) if ALIVE_NAME else "TamilBot"
 TAID = bot.uid
 
