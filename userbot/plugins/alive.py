@@ -7,7 +7,7 @@ from userbot.utils import admin_cmd
 from userbot.uniborgConfig import Config
 from userbot import ALIVE_NAME, CMD_HELP
 
-DEFAULTUSER = str(ALIVE_NAME) if ALIVE_NAME else "tamiluserbot"
+DEFAULTUSER = str(ALIVE_NAME) if ALIVE_NAME else "TamilUserBot"
 
 PM_IMG = Config.ALIVE_IMAGE
 pm_caption = "➥ **TAMILBOT IS:** `ONLINE`\n\n"
