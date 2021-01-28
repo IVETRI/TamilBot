@@ -74,7 +74,7 @@ async def upstream(ups):
             await ups.edit(
                 f"**Unfortunately, the directory {error} does not seem to be a git repository.\
                 \nOr Maybe it just needs a sync verification with {GIT_REPO_NAME}\
-            \nBut we can fix that by force updating the userbot using** `{xxxx}update now`."
+            \nBut we can fix that by force updating the userbot using** `update now`."
             )
             return
         repo = Repo.init()
