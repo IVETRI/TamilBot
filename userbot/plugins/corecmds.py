@@ -64,7 +64,6 @@ async def send(event):
             event.chat_id,
             the_plugin_file,
             thumb=thumb,
-            caption=men,
             force_document=True,
             allow_cache=False,
             reply_to=reply_to_id,

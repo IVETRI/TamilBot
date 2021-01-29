@@ -23,7 +23,7 @@ requirements_path = path.join(
 HEROKU_API_KEY = Var.HEROKU_API_KEY
 HEROKU_APP_NAME = Var.HEROKU_APP_NAME
 GIT_REPO_NAME = "TamilBot"
-UPSTREAM_REPO_URL = "https://github.com/ivetri/Tamilbot"
+UPSTREAM_REPO_URL = "https://github.com/imsaravanakrish/Tamilbot"
 
 
 
@@ -74,7 +74,7 @@ async def upstream(ups):
             await ups.edit(
                 f"**Unfortunately, the directory {error} does not seem to be a git repository.\
                 \nOr Maybe it just needs a sync verification with {GIT_REPO_NAME}\
-            \nBut we can fix that by force updating the userbot using** `update now`."
+            \nBut we can fix that by force updating the userbot using** `.update now`."
             )
             return
         repo = Repo.init()
@@ -132,7 +132,7 @@ async def upstream(ups):
             remove("output.txt")
         else:
             await ups.edit(changelog_str)
-        await ups.respond(f"Do `{xxxx}update now` to update")
+        await ups.respond(f"Do `.update now` to update")
         return
 
     if force_updateme:
