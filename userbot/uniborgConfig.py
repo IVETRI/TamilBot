@@ -104,6 +104,8 @@ if ENV:
         GDRIVE_FOLDER_ID = os.environ.get("GDRIVE_FOLDER_ID", None)
         #MongoDB
         MONGO_URI = os.environ.get("MONGO_URI", None)
+        # PMPERMITMENU
+        MAX_SPAM = int(os.environ.get("MAX_SPAM", 6))
         #Lydia API
         LYDIA_API = os.environ.get("LYDIA_API",None)
         PRIVATE_GROUP_ID = int(os.environ.get("PRIVATE_GROUP_ID", False))
