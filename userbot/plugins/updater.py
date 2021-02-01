@@ -5,7 +5,7 @@
 # Rewritten by @saravanakrish
 
 """
-This module is used for updating TeleBot
+This module is used for updating Tamilbot
 """
 
 import asyncio
