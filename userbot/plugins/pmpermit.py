@@ -25,8 +25,6 @@ FAV_NAME = os.environ.get("FAV_NAME", None)
 if FAV_NAME is None:
     FAV_NAME = "Tamil UserBot"
 
-PM_WARNS = {}
-PREV_REPLY_MESSAGE = {}
 myid = bot.uid
 MSGS = "`TeleBot PM security! Please wait for me to approve you`. 😊"
 
