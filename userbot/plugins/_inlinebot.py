@@ -26,7 +26,7 @@ if mybot.startswith("@"):
     botname = mybot
 else:
     botname = f"@{mybot}"
-MESAG = "`TamilBot PM security! Please wait for me to approve you. 😊"
+MSGS = "`TamilBot PM security! Please wait for me to approve you`. 😊"
 
 USER_BOT_WARN_ZERO = "`I had warned you not to spam. Now you have been blocked and reported until further notice.`\n\n**GoodBye!** "
 
