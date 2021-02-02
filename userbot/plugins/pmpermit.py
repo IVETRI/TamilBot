@@ -26,7 +26,7 @@ if FAV_NAME is None:
     FAV_NAME = "Tamil UserBot"
 
 myid = bot.uid
-MSGS = "`TeleBot PM security! Please wait for me to approve you`. 😊"
+MSGS = "`TamilBot PM security! Please wait for me to approve you`. 😊"
 
 
 PMPERMIT_TEXT = os.environ.get("PMPERMIT_TEXT", None)
