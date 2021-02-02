@@ -25,10 +25,12 @@ FAV_NAME = os.environ.get("FAV_NAME", None)
 if FAV_NAME is None:
     FAV_NAME = "Tamil UserBot"
 
+
+
 PMPERMIT_TEXT = os.environ.get("PMPERMIT_TEXT", None)
 if PMPERMIT_TEXT is None:
     USER_BOT_NO_WARN = (
-        f"**வணக்கம்! நான் `{DEFAULTUSER} `\n"
+        f"**Hello! நான் `{DEFAULTUSER} `\n"
         "நான் உங்களைப் போலல்லாமல் ஒரு Busy-யான மனிதர்!😁😅**\n\n"
         "⭕️ இது **[TamilBot](http://t.me/TamilUserBot)** Security Service ⭕️\n\n"
         f"🛡 PM பாதுகாப்பு சேவை! 🛡 \n\n"
@@ -195,10 +197,8 @@ if Var.PRIVATE_GROUP_ID is not None:
             # don't log verified accounts
 
             return
-
-        if any([x in event.raw_text for x in ("/start", "1", "2", "3", "4", "5")]):
+        if pmpermit_sql.is_approved(chat_id):
             return
-
         if not pmpermit_sql.is_approved(chat_id):
             # pm permit
             await do_pm_permit_action(chat_id, event)
@@ -231,13 +231,14 @@ if Var.PRIVATE_GROUP_ID is not None:
                 return
             except:
                 return
-        r = await event.client.send_file(
-            event.chat_id, WARN_PIC, caption=USER_BOT_NO_WARN
-        )
+        botusername = Var.TG_BOT_USER_NAME_BF_HER
+        tap = await bot.inline_query(botusername, USER_BOT_NO_WARN)
+        sed = await tap[0].click(event.chat_id)
         PM_WARNS[chat_id] += 1
         if chat_id in PREV_REPLY_MESSAGE:
             await PREV_REPLY_MESSAGE[chat_id].delete()
-        PREV_REPLY_MESSAGE[chat_id] = r
+        PREV_REPLY_MESSAGE[chat_id] = sed
+
 
 
 import io
