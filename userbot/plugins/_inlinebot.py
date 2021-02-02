@@ -17,7 +17,20 @@ if PMPERMIT_PIC is None:
 else:
     WARN_PIC = PMPERMIT_PIC
 LOG_CHAT = Config.PRIVATE_GROUP_ID
-DEFAULTUSER = str(ALIVE_NAME) if ALIVE_NAME else "Friday"
+
+PM_WARNS = {}
+PREV_REPLY_MESSAGE = {}
+myid = bot.uid
+mybot = Var.TG_BOT_USER_NAME_BF_HER
+if mybot.startswith("@"):
+    botname = mybot
+else:
+    botname = f"@{mybot}"
+MESAG = "`TamilBot PM security! Please wait for me to approve you. 😊"
+
+USER_BOT_WARN_ZERO = "`I had warned you not to spam. Now you have been blocked and reported until further notice.`\n\n**GoodBye!** "
+
+DEFAULTUSER = str(ALIVE_NAME) if ALIVE_NAME else "Tamilbot"
 
 
 @tgbot.on(events.InlineQuery)
@@ -26,9 +39,10 @@ async def inline_handler(event):
     result = None
     query = event.text
     if event.query.user_id == bot.uid and query.startswith("**வணக்கம்"):
-        result = builder.photo(
+      TNBT = USER_BOT_NO_WARN.format(DEFAULTUSER, myid, MSGS)
+      result = builder.photo(
             file=WARN_PIC,
-            text=query,
+            text=TNBT,
             buttons=[
                 [custom.Button.inline("Spamming", data="dontspamnigga")],
                 [
