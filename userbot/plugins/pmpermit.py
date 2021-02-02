@@ -25,6 +25,12 @@ FAV_NAME = os.environ.get("FAV_NAME", None)
 if FAV_NAME is None:
     FAV_NAME = "Tamil UserBot"
 
+PM_WARNS = {}
+PREV_REPLY_MESSAGE = {}
+myid = bot.uid
+MSGS = "`TeleBot PM security! Please wait for me to approve you`. 😊"
+
+
 PMPERMIT_TEXT = os.environ.get("PMPERMIT_TEXT", None)
 if PMPERMIT_TEXT is None:
     USER_BOT_NO_WARN = (
@@ -234,7 +240,7 @@ if Var.PRIVATE_GROUP_ID is not None:
     # inline pmpermit menu
     mybot = Var.TG_BOT_USER_NAME_BF_HER
     MSG = USER_BOT_NO_WARN.format(
-        DEFAULTUSER, myid, MESAG, PM_WARNS[chat_id] + 1, Config.MAX_SPAM
+        DEFAULTUSER, myid, MSGS, PM_WARNS[chat_id] + 1, Config.MAX_SPAM
     )
     tele = await bot.inline_query(mybot, MSG)
     r = await tele[0].click(event.chat_id, hide_via=True)
