@@ -195,7 +195,6 @@ async def rip(event):
     await tgbot.send_message(
         LOG_CHAT,
         message=f"Hello, A [New User](tg://user?id={him_id}). Wants To Talk With You.",
-        buttons=[Button.url("Contact Him", f"tg://user?id={him_id}")],
     )
 
 
@@ -213,7 +212,6 @@ async def rip(event):
     await tgbot.send_message(
         LOG_CHAT,
         message=f"Hello, A [New User](tg://user?id={him_id}). Wants To Ask You Something.",
-        buttons=[Button.url("Contact Him", f"tg://user?id={him_id}")],
     )
 
 if Var.TG_BOT_USER_NAME_BF_HER is not None and tgbot is not None:
