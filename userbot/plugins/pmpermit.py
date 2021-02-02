@@ -25,8 +25,6 @@ FAV_NAME = os.environ.get("FAV_NAME", None)
 if FAV_NAME is None:
     FAV_NAME = "Tamil UserBot"
 
-myid = bot.uid
-MSGS = "`TamilBot PM security! Please wait for me to approve you`. 😊"
 
 
 PMPERMIT_TEXT = os.environ.get("PMPERMIT_TEXT", None)
@@ -235,17 +233,15 @@ if Var.PRIVATE_GROUP_ID is not None:
                 return
             except:
                 return
-    # inline pmpermit menu
-    mybot = Var.TG_BOT_USER_NAME_BF_HER
-    MSG = USER_BOT_NO_WARN.format(
-        DEFAULTUSER, myid, MSGS, PM_WARNS[chat_id] + 1, Config.MAX_SPAM
-    )
-    PM_WARNS[chat_id] += 1
-    if chat_id in PREV_REPLY_MESSAGE:
-        await PREV_REPLY_MESSAGE[chat_id].delete()
-    PREV_REPLY_MESSAGE[chat_id] = r
+        botusername = Var.TG_BOT_USER_NAME_BF_HER
+        tap = await bot.inline_query(botusername, USER_BOT_NO_WARN)
+        sed = await tap[0].click(event.chat_id)
+        PM_WARNS[chat_id] += 1
+        if chat_ids in PREV_REPLY_MESSAGE:
+            await PREV_REPLY_MESSAGE[chat_id].delete()
+        PREV_REPLY_MESSAGE[chat_id] = sed
 
-      
+
 
 import io
 
