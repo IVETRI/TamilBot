@@ -20,13 +20,7 @@ LOG_CHAT = Config.PRIVATE_GROUP_ID
 
 PM_WARNS = {}
 PREV_REPLY_MESSAGE = {}
-myid = bot.uid
-mybot = Var.TG_BOT_USER_NAME_BF_HER
-if mybot.startswith("@"):
-    botname = mybot
-else:
-    botname = f"@{mybot}"
-MSGS = "`TamilBot PM security! Please wait for me to approve you`. 😊"
+
 
 USER_BOT_WARN_ZERO = "`I had warned you not to spam. Now you have been blocked and reported until further notice.`\n\n**GoodBye!** "
 
@@ -38,11 +32,31 @@ async def inline_handler(event):
     builder = event.builder
     result = None
     query = event.text
-    if event.query.user_id == bot.uid and query.startswith("**வணக்கம்"):
-      TNBT = USER_BOT_NO_WARN.format(DEFAULTUSER, myid, MSGS)
-      result = builder.photo(
+    if event.query.user_id == bot.uid and query.startswith("tamilbot"):
+        rev_text = query[::-1]
+        buttons = paginate_help(0,"helpme")
+        result = builder.article(
+            "© Userbot Help",
+            text="{}\nCurrently Loaded Plugins: {}".format(query, len(CMD_LIST)),
+            buttons=buttons,
+            link_preview=False,
+        )
+        await event.answer([result])
+    elif event.query.user_id == bot.uid and query == "stats":
+        result = builder.article(
+            title="Stats",
+            text=f"**Showing Stats For {DEFAULTUSER}'s TamilBot** \nNote --> Only Owner Can Check This \n(C) @tamilsupport",
+            buttons=[
+                [custom.Button.inline("Show Stats ?", data="terminator")],
+                [Button.url("Repo 🇮🇳", "https://github.com/ivetri/tamilbot")],
+                [Button.url("Join Channel ❤️", "t.me/Tamilsupport")],
+            ],
+        )
+        await event.answer([result])
+    elif event.query.user_id == bot.uid and query.startswith("**Hello"):
+        result = builder.photo(
             file=WARN_PIC,
-            text=TNBT,
+            text=query,
             buttons=[
                 [custom.Button.inline("Spamming", data="dontspamnigga")],
                 [
