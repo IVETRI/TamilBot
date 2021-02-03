@@ -179,7 +179,7 @@ For More Help or Support Visit @TamilSupport \nCurrently Loaded Plugins: {len(CM
     await event.edit(message=sed, buttons=buttons)
 
 @tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"pmclick")))
-    async def rip(event):
+async def rip(event):
         if event.query.user_id == bot.uid:
             reply_pop_up_alert = "This ain't for you, master!"
             await event.answer(reply_pop_up_alert, cache_time=0, alert=True)
