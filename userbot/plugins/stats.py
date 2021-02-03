@@ -8,8 +8,22 @@ from telethon.tl.types import Channel, Chat, User
 
 from ..utils import admin_cmd
 
+@borg.on(admin_cmd(pattern="stat$"))
+async def stats(event):
+    if event.fwd_from:
+        return
+    ahyes = await tgbot.get_me()
+    botusername = ahyes.username
+    noob = "stats"
+    if event.reply_to_msg_id:
+        await event.get_reply_message()
+    tap = await bot.inline_query(botusername, noob)
+    await tap[0].click(event.chat_id)
+    await event.delete()
 
-@borg.on(admin_cmd(pattern="stat"))
+
+
+@borg.on(admin_cmd(pattern="stats"))
 async def stats(
     event: NewMessage.Event,
 ) -> None:  # pylint: disable = R0912, R0914, R0915
