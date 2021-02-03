@@ -222,7 +222,7 @@ For More Help or Support Visit @TamilSupport \nCurrently Loaded Plugins: {len(CM
             await event.answer(reply_pop_up_alert, cache_time=0, alert=True)
         else:
             await event.edit(
-                f"This is the PM Security for {DEFAULTUSER} to keep away spammers and retards.\n\nProtected by [TeleBot](t.me/TeleBotSupport)"
+                f"This is the PM Security for {DEFAULTUSER} to keep away spammers and retards.\n\nProtected by [TamilBot](t.me/TamilBotSupport)"
             )
 
 
