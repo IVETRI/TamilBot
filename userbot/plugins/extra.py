@@ -49,18 +49,6 @@ async def facepalm(e):
     if not e.text[0].isalpha() and e.text[0] not in ("/", "#", "@", "!"):
         await e.edit("🤦‍♂")
 
-@borg.on(admin_cmd(outgoing=True, pattern="repo"))
-async def repo(event):
-    if event.fwd_from:
-        return
-    tgbotname = Var.TG_BOT_USER_NAME_BF_HER
-    if event.reply_to_msg_id:
-        await event.get_reply_message()
-    response = await bot.inline_query(tgbotname, "repo")
-    await response[0].click(event.chat_id)
-    await event.delete()
-
-
 @borg.on(admin_cmd("moon"))
 #@register(outgoing=True, pattern="^.mmoon$")
 async def _(event):
