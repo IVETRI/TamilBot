@@ -200,10 +200,8 @@ async def rip(event):
     await event.edit("Choice Accepted ✔️")
     text2 = "Ok. Please Wait Until My Master Approves. Don't Spam Or Try Anything Stupid. \nThank You For Contacting Me."
     await borg.send_message(event.query.user_id, text2)
-    await tgbot.send_message(
-        LOG_CHAT,
-        message=f"Hello, A [New User](tg://user?id={him_id}). Wants To Talk With You.",
-    )
+    nnmsg=f"Hello{DEFAULTUSER}, A [New User](tg://user?id={him_id}). Wants To Talk With You."
+    await tgbot.send_message(LOG_CHAT, nnmsg)
 
 
 @tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"askme")))
@@ -217,10 +215,8 @@ async def rip(event):
     await event.edit("Choice Accepted ✔️")
     text3 = "Ok, Wait. You can Ask After Master Approves You. Kindly, Wait."
     await borg.send_message(event.query.user_id, text3)
-    await tgbot.send_message(
-        LOG_CHAT,
-        message=f"Hello, A [New User](tg://user?id={him_id}). Wants To Ask You Something.",
-    )
+    nnmsg=f"Hello{DEFAULTUSER}, A [New User](tg://user?id={him_id}). Wants To Ask You Something.",
+    await tgbot.send_message(LOG_CHAT, nnmsg)
 
 if Var.TG_BOT_USER_NAME_BF_HER is not None and tgbot is not None:
     @tgbot.on(events.InlineQuery)  # pylint:disable=E0602
