@@ -58,18 +58,16 @@ async def inline_handler(event):
             file=WARN_PIC,
             text=query,
             buttons=[
-                [custom.Button.inline("Spamming", data="dontspamnigga")],
-                [
-                    custom.Button.inline(
-                        "Casual Talk",
-                        data="whattalk",
-                    )
+                    [
+                        custom.Button.inline("Request ", data="askme"),
+                        custom.Button.inline("Chat 💭", data="whattalk"),
+                    ],
+                    [custom.Button.inline("To spam 🚫", data="dontspamnigga")],
+                    [custom.Button.inline("What is this ❓", data="pmclick")],
                 ],
-                [custom.Button.inline("Requesting", data="askme")],
-            ],
-        )
-        await event.answer([result])
-
+            )
+    
+        await event.answer([result] if result else None)
 
 @tgbot.on(
     events.callbackquery.CallbackQuery(  # pylint:disable=E0602
@@ -179,6 +177,16 @@ async def sed(event):
     sed = f"""Tamil UserBot Modules Are Listed Here !\n
 For More Help or Support Visit @TamilSupport \nCurrently Loaded Plugins: {len(CMD_LIST)}"""
     await event.edit(message=sed, buttons=buttons)
+
+@tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"pmclick")))
+async def rip(event):
+        if event.query.user_id == bot.uid:
+            reply_pop_up_alert = "This ain't for you, master!"
+            await event.answer(reply_pop_up_alert, cache_time=0, alert=True)
+        else:
+            await event.edit(
+                f"This is the PM Security for {DEFAULTUSER} to keep away spammers and retards.\n\nProtected by [TamilBot](t.me/TamilBotSupport)"
+            )
 
 
 @tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"whattalk")))
