@@ -66,7 +66,7 @@ async def inline_handler(event):
                     [custom.Button.inline("What is this ❓", data="pmclick")],
                 ],
             )
-        elif event.query.user_id == bot.uid and query == "repo":
+     elif event.query.user_id == bot.uid and query == "repo":
             result = builder.article(
                 title="Repository",
                 text=f"TamilBot - Telegram Userbot.",
@@ -81,7 +81,7 @@ async def inline_handler(event):
                     [Button.url("Support", "https://t.me/tamilSupport")],
                 ],
             )
-        else:
+     else:
             result = builder.article(
                 "Source Code",
                 text="**Welcome to TamilBot**\n\n`Click below buttons for more`",
