@@ -66,44 +66,7 @@ async def inline_handler(event):
                     [custom.Button.inline("What is this ❓", data="pmclick")],
                 ],
             )
-     elif event.query.user_id == bot.uid and query == "repo":
-            result = builder.article(
-                title="Repository",
-                text=f"TamilBot - Telegram Userbot.",
-                buttons=[
-                    [
-                        Button.url("Repo", "https://github.com/ivetri/tamilbot"),
-                        Button.url(
-                            "Deploy",
-                            "https://dashboard.heroku.com/new?button-url=https%3A%2F%2Fgithub.com%2Fxditya%2FTeleBot&template=https%3A%2F%2Fgithub.com%2Fxditya%2FTeleBot",
-                        ),
-                    ],
-                    [Button.url("Support", "https://t.me/tamilSupport")],
-                ],
-            )
-     else:
-            result = builder.article(
-                "Source Code",
-                text="**Welcome to TamilBot**\n\n`Click below buttons for more`",
-                buttons=[
-                    [custom.Button.url("Creator👨‍🦱", "https://t.me/saravanakrish")],
-                    [
-                        custom.Button.url(
-                            "👨‍💻Source Code‍💻", "https://github.com/ivetri/tamilbot"
-                        ),
-                        custom.Button.url(
-                            "Deploy 🌀",
-                            "https://dashboard.heroku.com/new?template=https%3A%2F%2Fgithub.com%2Fxditya%2FTeleBot",
-                        ),
-                    ],
-                    [
-                        custom.Button.url(
-                            "Updates and Support Group↗️", "https://t.me/Tamilsupport"
-                        )
-                    ],
-                ],
-                link_preview=False,
-            )
+    
         await event.answer([result] if result else None)
 
 @tgbot.on(
