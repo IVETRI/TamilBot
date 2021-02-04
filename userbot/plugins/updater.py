@@ -86,9 +86,9 @@ async def upstream(ups):
         repo.heads.master.checkout(True)
 
     ac_br = repo.active_branch.name
-    if ac_br != "TamilUserBot":
+    if ac_br != "master":
         await ups.edit(
-            f"**[UPDATER]:**` Looks like you are using your own custom branch ({ac_br}). "
+            f"**[TamilBot]:**` Looks like you are using your own custom branch ({ac_br}). "
             "in that case, Updater is unable to identify "
             "which branch is to be merged. "
             "Please checkout the official branch of TamilBot`"
