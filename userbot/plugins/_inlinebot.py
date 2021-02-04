@@ -155,14 +155,13 @@ async def rip(event):
         return
     await event.get_chat()
     him_id = event.query.user_id
-    text1 = "You Have Chosed A Probhited Option. Therefore, You Have Been Blocked By UserBot. 🇮🇳"
-    await event.edit("Choice Not Accepted ❌")
+    await event.edit("You Have Chosed A Probhited Option. Therefore, You Have Been Blocked By TamilBot. 🇮🇳")
     await borg.send_message(event.query.user_id, text1)
     await borg(functions.contacts.BlockRequest(event.query.user_id))
+    PM_TXT = f"Hello{DEFAULTUSER}, A Noob [Nibba](tg://user?id={him_id}) Selected Probhited Option, Therefore Blocked."
     await tgbot.send_message(
         LOG_CHAT,
-        f"Hello, A Noob [Nibba](tg://user?id={him_id}) Selected Probhited Option, Therefore Blocked.",
-    )
+        message=PM_TXT)
 
 
 @tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"backme")))
@@ -198,7 +197,7 @@ async def rip(event):
     await event.get_chat()
     him_id = event.query.user_id
     await event.edit("Ok. Please Wait Until My Master Approves. Don't Spam Or Try Anything Stupid. \nThank You For Contacting Me.")
-    PM_TXT=f"Hello{DEFAULTUSER}, A [New User](tg://user?id={him_id}). Wants To Talk With You."
+    PM_TXT = f"Hello{DEFAULTUSER}, A [New User](tg://user?id={him_id}). Wants To Talk With You."
     await borg.send_message(
         LOG_CHAT, 
         message=PM_TXT)
@@ -213,7 +212,7 @@ async def rip(event):
     await event.get_chat()
     him_id = event.query.user_id
     await event.edit("Ok, Wait. You can Ask After Master Approves You. Kindly, Wait.")
-    PM_TXT=f"Hello{DEFAULTUSER}, A [New User](tg://user?id={him_id}). Wants To Ask You Something.",
+    PM_TXT = f"Hello{DEFAULTUSER}, A [New User](tg://user?id={him_id}). Wants To Ask You Something.",
     await borg.send_message(
         LOG_CHAT, 
         message=PM_TXT)
