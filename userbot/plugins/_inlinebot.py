@@ -158,8 +158,8 @@ async def rip(event):
     await event.edit("You Have Chosed A Probhited Option. Therefore, You Have Been Blocked By TamilBot. 🇮🇳")
     await borg.send_message(event.query.user_id, text1)
     await borg(functions.contacts.BlockRequest(event.query.user_id))
-    messages = f"Hello{DEFAULTUSER}, A Noob [Nibba](tg://user?id={him_id}) Selected Probhited Option, Therefore Blocked."
-    await tgbot.send_message(LOG_CHAT, messages)
+    PM_S = f"Hello{DEFAULTUSER}, A Noob [Nibba](tg://user?id={him_id}) Selected Probhited Option, Therefore Blocked."
+    await tgbot.send_message(LOG_CHAT, PM_S)
 
 @tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"backme")))
 async def sed(event):
@@ -194,8 +194,10 @@ async def rip(event):
     await event.get_chat()
     him_id = event.query.user_id
     await event.edit("Ok. Please Wait Until My Master Approves. Don't Spam Or Try Anything Stupid. \nThank You For Contacting Me.")
-    messages = f"Hello{DEFAULTUSER}, A [New User](tg://user?id={him_id}). Wants To Talk With You."
-    await tgbot.send_message(LOG_CHAT, messages)
+    await tgbot.send_message(
+        LOG_CHAT, 
+        f"Hello{DEFAULTUSER}, A [New User](tg://user?id={him_id}). Wants To Talk With You."
+    )
 
 @tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"askme")))
 async def rip(event):
@@ -207,7 +209,10 @@ async def rip(event):
     him_id = event.query.user_id
     await event.edit("Ok, Wait. You can Ask After Master Approves You. Kindly, Wait.")
     messages = f"Hello{DEFAULTUSER}, A [New User](tg://user?id={him_id}). Wants To Ask You Something.",
-    await borg.send_message(LOG_CHAT, messages)
+    await borg.send_message(
+        LOG_CHAT, 
+        PM_S
+    )
         
 if Var.TG_BOT_USER_NAME_BF_HER is not None and tgbot is not None:
     @tgbot.on(events.InlineQuery)  # pylint:disable=E0602
