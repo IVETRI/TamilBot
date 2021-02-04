@@ -22,8 +22,8 @@ requirements_path = path.join(
 
 HEROKU_API_KEY = Var.HEROKU_API_KEY
 HEROKU_APP_NAME = Var.HEROKU_APP_NAME
-GIT_REPO_NAME = "Tamilbot"
-UPSTREAM_REPO_URL = "https://github.com/ivetri/tamilbot"
+GIT_REPO_NAME = "TamilBot"
+UPSTREAM_REPO_URL = "https://github.com/ivetri/TamilBot"
 
 
 
@@ -91,7 +91,7 @@ async def upstream(ups):
             f"**[UPDATER]:**` Looks like you are using your own custom branch ({ac_br}). "
             "in that case, Updater is unable to identify "
             "which branch is to be merged. "
-            "Please checkout the official branch of Tamilbot`"
+            "Please checkout the official branch of TamilBot`"
         )
         repo.__del__()
         return
@@ -136,9 +136,9 @@ async def upstream(ups):
         return
 
     if force_updateme:
-        await ups.edit("`Force-Syncing to latest stable userbot code, please wait...`")
+        await ups.edit("`Force-Syncing to latest stable TamilBot code, please wait...`")
     else:
-        await ups.edit("`Updating userbot, please wait....`")
+        await ups.edit("`Updating TamilBot, Please Wait....`")
     # We're in a Heroku Dyno, handle it's memez.
     if Var.HEROKU_API_KEY is not None:
         import heroku3
@@ -148,7 +148,7 @@ async def upstream(ups):
         heroku_applications = heroku.apps()
         if not Var.HEROKU_APP_NAME:
             await ups.edit(
-                "`Please set up the HEROKU_APP_NAME variable to be able to update userbot.`"
+                "`Please set up the HEROKU_APP_NAME variable to be able to update TamilBot.`"
             )
             repo.__del__()
             return
@@ -158,12 +158,12 @@ async def upstream(ups):
                 break
         if heroku_app is None:
             await ups.edit(
-                f"{txt}\n`Invalid Heroku credentials for updating userbot dyno.`"
+                f"{txt}\n`Invalid Heroku credentials for updating TamilBot dyno.`"
             )
             repo.__del__()
             return
         await ups.edit(
-            "`Userbot dyno build in progress, please wait for it to complete.`"
+            "`TamilBot dyno build in progress, please wait for it to complete.`"
         )
         ups_rem.fetch(ac_br)
         repo.git.reset("--hard", "FETCH_HEAD")
@@ -193,6 +193,6 @@ async def upstream(ups):
             "`Successfully Updated!\n" "Bot is restarting... Wait for a second!`"
         )
         # Spin a new instance of bot
-        args = [sys.executable, "-m", "userbot"]
+        args = [sys.executable, "-m", "TamilBot"]
         execle(sys.executable, *args, environ)
         return
