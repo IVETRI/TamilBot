@@ -34,7 +34,7 @@ if PMPERMIT_TEXT is None:
         "**நான் உங்களைப் போலல்லாமல் ஒரு Busy-யான மனிதர்!😁😅**\n\n"
         "⭕️இது **[TamilBot](http://t.me/TamilUserBot)** Security Service⭕️\n\n"
         f"🛡 PM பாதுகாப்பு சேவை! 🛡 \n\n"
-        "**Please Select An Option From The Drop Down Why You’re Here**   \n\n"
+        "**Please Select An Option From The Drop Down Why You’re Here**"
     )
 
 else:
