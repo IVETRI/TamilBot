@@ -74,7 +74,7 @@ async def upstream(ups):
             await ups.edit(
                 f"**Unfortunately, the directory {error} does not seem to be a git repository.\
                 \nOr Maybe it just needs a sync verification with {GIT_REPO_NAME}\
-            \nBut we can fix that by force updating the userbot using** `.update now`."
+            \nBut we can fix that by force updating the TamilBot using** `.update now`."
             )
             return
         repo = Repo.init()
@@ -86,7 +86,7 @@ async def upstream(ups):
         repo.heads.master.checkout(True)
 
     ac_br = repo.active_branch.name
-    if ac_br != "master":
+    if ac_br != "TamilBot":
         await ups.edit(
             f"**[UPDATER]:**` Looks like you are using your own custom branch ({ac_br}). "
             "in that case, Updater is unable to identify "
