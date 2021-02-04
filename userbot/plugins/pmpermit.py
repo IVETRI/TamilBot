@@ -30,11 +30,13 @@ if FAV_NAME is None:
 PMPERMIT_TEXT = os.environ.get("PMPERMIT_TEXT", None)
 if PMPERMIT_TEXT is None:
     USER_BOT_NO_WARN = (
-        f"Hello! நான் `{DEFAULTUSER} `\n\n"
-        "**நான் உங்களைப் போலல்லாமல் ஒரு Busy-யான மனிதர்!😁😅**\n\n"
-        "⭕️இது **[TamilBot](http://t.me/TamilUserBot)** Security Service⭕️\n\n"
+        f"**Hello! நான் `{DEFAULTUSER} `\n"
+        "நான் உங்களைப் போலல்லாமல் ஒரு Busy-யான மனிதர்!😁😅**\n\n"
+        "⭕️ இது **[TamilBot](http://t.me/TamilUserBot)** Security Service ⭕️\n\n"
         f"🛡 PM பாதுகாப்பு சேவை! 🛡 \n\n"
-        "**Please Select An Option From The Drop Down Why You’re Here**"
+        "உங்கள் பெயர் மற்றும் நீங்கள் எதன் காரணமாக என்னை தொடர்பு கொள்ள விரும்புகிறீர்கள் என்பதை சுருக்கமாக கூறவும்!!!...  \n\n"
+        "**எனது தனிப்பதிவில்(Pm) spam வேண்டாம்** \n\n"
+        "**⚠️🛑நீங்கள் ஸ்பேம் செய்தால் நீங்கள் தடுக்கப்படுவீர்கள் மற்றும் புகாரளிக்கப்படுவீர்கள்🛑⚠️**"
     )
 
 else:
@@ -231,13 +233,13 @@ if Var.PRIVATE_GROUP_ID is not None:
                 return
         botusername = Var.TG_BOT_USER_NAME_BF_HER
         tap = await bot.inline_query(botusername, USER_BOT_NO_WARN)
-        sed = await tap[0].click(chat_id, event)
+        sed = await tap[0].click(event.chat_id)
         PM_WARNS[chat_id] += 1
         if chat_id in PREV_REPLY_MESSAGE:
             await PREV_REPLY_MESSAGE[chat_id].delete()
         PREV_REPLY_MESSAGE[chat_id] = sed
 
-        
+
 
 import io
 
