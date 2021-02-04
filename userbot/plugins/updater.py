@@ -108,14 +108,14 @@ async def upstream(ups):
 
     if not changelog and not force_updateme:
         await ups.edit(
-            f"\n`Your BOT is`  **up-to-date**  `with`  **[[{ac_br}]]({UPSTREAM_REPO_URL}/tree/{ac_br})**\n"
+            f"\n`Your BOT is`  **up-to-date**  `with`  **[[TamilBot🇮🇳]]({UPSTREAM_REPO_URL}/tree/{ac_br})**\n"
         )
         repo.__del__()
         return
 
     if conf != "now" and not force_updateme:
         changelog_str = (
-            f"**New UPDATE available for [[{ac_br}]]({UPSTREAM_REPO_URL}/tree/{ac_br}):**\n\n"
+            f"**New UPDATE available for [[TamilBot🇮🇳]]({UPSTREAM_REPO_URL}/tree/{ac_br}):**\n\n"
             + "**CHANGELOG**\n\n"
             + f"{changelog}"
         )
@@ -193,6 +193,6 @@ async def upstream(ups):
             "`Successfully Updated!\n" "Bot is restarting... Wait for a second!`"
         )
         # Spin a new instance of bot
-        args = [sys.executable, "-m", "TamilBot"]
+        args = [sys.executable, "-m", "UserBot"]
         execle(sys.executable, *args, environ)
         return
