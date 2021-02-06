@@ -9,7 +9,7 @@ from telethon.tl.types import (
 )
 from telethon.utils import pack_bot_file_id
 
-from telebot.utils import admin_cmd
+from userbot.utils import admin_cmd
 
 
 @borg.on(admin_cmd(pattern="get_ad?(m)in ?(.*)"))
