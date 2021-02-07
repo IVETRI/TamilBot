@@ -4,10 +4,13 @@ from datetime import datetime
 
 @command(pattern="^.ping")
 async def _(event):
+    starkislub = await edit_or_reply(event, "`Pong !`")
     if event.fwd_from:
         return
     start = datetime.now()
-    await event.edit("Pong!")
     end = datetime.now()
     ms = (end - start).microseconds / 1000
-    await event.edit("🏓 Pong!\n{}".format(ms))
+    uptime = get_readable_time((time.time() - Lastupdate))
+    await starkislub.edit(
+        f"**█▀█ █▀█ █▄░█ █▀▀ █ \n█▀▀ █▄█ █░▀█ █▄█ ▄**\n ➲ `{ms}` \n ➲ `{uptime}`"
+    )
