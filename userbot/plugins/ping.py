@@ -13,7 +13,6 @@ DEFAULTUSER = str(ALIVE_NAME) if ALIVE_NAME else "TamilBot🇮🇳"
 async def _(event):
     if event.fwd_from:
         return
-
     IMSID = bot.uid
     start = datetime.now()
     event = await edit_or_reply(event, "__**🚴🏻‍♂️ Pong!__**")
