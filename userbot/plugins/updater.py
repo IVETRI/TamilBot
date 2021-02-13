@@ -108,7 +108,7 @@ async def upstream(ups):
 
     if not changelog and not force_updateme:
         await ups.edit(
-            f"\n`Your BOT is`  **up-to-date**  `with`  **[[TamilBot🇮🇳]]({UPSTREAM_REPO_URL}/tree/{ac_br})**\n"
+            f"\n`Your BOT is`  **up-to-date**  `with` **[[TamilBot🇮🇳]]({UPSTREAM_REPO_URL}/tree/{ac_br})**\n"
         )
         repo.__del__()
         return
