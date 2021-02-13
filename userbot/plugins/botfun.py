@@ -4,7 +4,6 @@ from telegraph import Telegraph
 from telethon import events
 from telethon.errors.rpcerrorlist import YouBlockedUserError
 
-from userbot.uniborgConfig import Var
 from telebot.utils import admin_cmd
 
 telegraph = Telegraph()
