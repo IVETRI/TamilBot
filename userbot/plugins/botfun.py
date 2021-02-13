@@ -4,7 +4,7 @@ from telegraph import Telegraph
 from telethon import events
 from telethon.errors.rpcerrorlist import YouBlockedUserError
 
-from telebot.utils import admin_cmd
+from userbot.utils import admin_cmd
 
 telegraph = Telegraph()
 mee = telegraph.create_account(short_name="tamilbot")
