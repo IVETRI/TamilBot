@@ -125,7 +125,7 @@ async def _(event):
         )
 
 
-@telebot.on(admin_cmd(pattern="stat$"))
+@borg.on(admin_cmd(pattern="stat$"))
 async def stats(event):
     if event.fwd_from:
         return
