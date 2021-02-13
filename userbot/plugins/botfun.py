@@ -151,8 +151,7 @@ async def gamez(event):
     await event.delete()
 
 
-@telebot.on(admin_cmd(pattern="whisper ?(.*)"))
-@telebot.on(sudo_cmd(pattern="whisper ?(.*)", allow_sudo=True))
+@borg.on(admin_cmd(pattern="whisper ?(.*)"))
 async def wspr(event):
     if event.fwd_from:
         return
@@ -165,8 +164,7 @@ async def wspr(event):
     await event.delete()
 
 
-@telebot.on(admin_cmd(pattern="crack ?(.*)"))
-@telebot.on(sudo_cmd(pattern="crack ?(.*)", allow_sudo=True))
+@borg.on(admin_cmd(pattern="crack ?(.*)"))
 async def mod(event):
     if event.fwd_from:
         return
@@ -179,8 +177,7 @@ async def mod(event):
     await event.delete()
 
 
-@telebot.on(admin_cmd(pattern="checkspam ?(.*)"))
-@telebot.on(sudo_cmd(pattern="checkspam ?(.*), allow_sudo=True"))
+@borg.on(admin_cmd(pattern="checkspam ?(.*)"))
 async def _(event):
     bot = "@SpamBot"
     if event.fwd_from:
