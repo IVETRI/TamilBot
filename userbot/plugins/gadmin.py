@@ -49,7 +49,7 @@ async def get_user_from_id(user, event):
     return user_obj
 
 
-@borg.on(friday_on_cmd(pattern="gban ?(.*)"))
+@borg.on(admin_cmd(pattern="gban ?(.*)"))
 async def gspider(fridaybot):
     lol = fridaybot
     sender = await lol.get_sender()
@@ -115,7 +115,7 @@ async def gspider(fridaybot):
     )
 
 
-@borg.on(friday_on_cmd(pattern="ungban ?(.*)"))
+@borg.on(admin_cmd(pattern="ungban ?(.*)"))
 async def gspider(fridaybot):
     lol = fridaybot
     sender = await lol.get_sender()
@@ -210,7 +210,7 @@ async def handler(rkG):
                             return
 
 
-@borg.on(friday_on_cmd(pattern=r"gmute ?(\d+)?"))
+@borg.on(admin_cmd(pattern=r"gmute ?(\d+)?"))
 async def startgmute(event):
     private = False
     if event.fwd_from:
@@ -242,7 +242,7 @@ async def startgmute(event):
         await event.edit("Here A Tape, Now Shutup \nGmuteD")
 
 
-@borg.on(friday_on_cmd(pattern=r"ungmute ?(\d+)?"))
+@borg.on(admin_cmd(pattern=r"ungmute ?(\d+)?"))
 async def endgmute(event):
     private = False
     if event.fwd_from:
