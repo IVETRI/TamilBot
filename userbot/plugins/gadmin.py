@@ -84,21 +84,21 @@ async def gspider(fridaybot):
                 f"**Didn't , Your Father Teach You ? That You Cant Gban Dev**"
             )
         try:
-            from fridaybot.modules.sql_helper.gmute_sql import gmute
+            from userbot.modules.sql_helper.gmute_sql import gmute
         except:
             pass
         try:
-            await fridaybot.client(BlockRequest(user))
+            await userbot.client(BlockRequest(user))
         except:
             pass
         testfridaybot = [
             d.entity.id
-            for d in await fridaybot.client.get_dialogs()
+            for d in await userbot.client.get_dialogs()
             if (d.is_group or d.is_channel)
         ]
         for i in testfridaybot:
             try:
-                await fridaybot.client.edit_permissions(i, user, view_messages=False)
+                await userbot.client.edit_permissions(i, user, view_messages=False)
                 a += 1
                 await friday.edit(f"**GBANNED // Total Affected Chats **: `{a}`")
             except:
@@ -148,21 +148,21 @@ async def gspider(fridaybot):
         if user.id == 1169076058:
             return await friday.edit("**You Cant Ungban A Dev !**")
         try:
-            from fridaybot.modules.sql_helper.gmute_sql import ungmute
+            from userbot.modules.sql_helper.gmute_sql import ungmute
         except:
             pass
         try:
-            await fridaybot.client(UnblockRequest(user))
+            await userbot.client(UnblockRequest(user))
         except:
             pass
         testfridaybot = [
             d.entity.id
-            for d in await fridaybot.client.get_dialogs()
+            for d in await userbot.client.get_dialogs()
             if (d.is_group or d.is_channel)
         ]
         for i in testfridaybot:
             try:
-                await fridaybot.client.edit_permissions(i, user, send_messages=True)
+                await userbot.client.edit_permissions(i, user, send_messages=True)
                 a += 1
                 await friday.edit(f"**UNGBANNING // AFFECTED CHATS - {a} **")
             except:
@@ -183,7 +183,7 @@ async def gspider(fridaybot):
 async def handler(rkG):
     if rkG.user_joined or rkG.user_added:
         try:
-            from fridaybot.modules.sql_helper.gmute_sql import is_gmuted
+            from userbot.modules.sql_helper.gmute_sql import is_gmuted
 
             guser = await rkG.get_user()
             gmuted = is_gmuted(guser.id)
