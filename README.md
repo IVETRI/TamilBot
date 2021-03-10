@@ -27,6 +27,7 @@ Before clicking on deploy to heroku just click on fork and star just below
 ## Give your 💙 and support 
 
 
+# Credits :
 
 
 ### Video Tutorial
