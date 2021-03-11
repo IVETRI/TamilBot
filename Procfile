@@ -1,1 +1,0 @@
-tamilbot: python -m tamilbot
