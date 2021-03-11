@@ -44,7 +44,7 @@ Click the below button to watch the video tutorial on deploying
 
 ## Deploy TamilBot to Heroku:
 
-[![Deploy To Heroku](https://www.herokucdn.com/deploy/button.svg)](https://dashboard.heroku.com/new?button-url=https%3A%2F%2Fgithub.com%2Fivetri%2Ftamilbot%2Ftree%2Fbugs&template=https%3A%2F%2Fgithub.com%2Fivetri%2Ftamilbot)
+[![Deploy To Heroku](https://www.herokucdn.com/deploy/button.svg)](https://dashboard.heroku.com/new?button-url=https%3A%2F%2Fgithub.com%2Fimsaravanakrish%2Ftamilbot%2Ftree%2Fbugs&template=https%3A%2F%2Fgithub.com%2Fimsaravanakrish%2Ftamilbot)
 
 ### குழுக்கள் மற்றும் ஆதரவு:
 
