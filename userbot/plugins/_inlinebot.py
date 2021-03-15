@@ -27,6 +27,7 @@ USER_BOT_WARN_ZERO = "`I had warned you not to spam. Now you have been blocked a
 DEFAULTUSER = str(ALIVE_NAME) if ALIVE_NAME else "Tamilbot"
 
 
+if Var.TG_BOT_USER_NAME is not None and tgbot is not None:
 @tgbot.on(events.InlineQuery)
 async def inline_handler(event):
     builder = event.builder
