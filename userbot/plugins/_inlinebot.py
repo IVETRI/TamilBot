@@ -218,7 +218,7 @@ async def rip(event):
     nnmsg=f"Hello{DEFAULTUSER}, A [New User](tg://user?id={him_id}). Wants To Ask You Something.",
     await tgbot.send_message(LOG_CHAT, nnmsg)
 
-if Var.TG_BOT_USER_NAME_BF_HER is not None and tgbot is not None:
+if Var.TG_BOT_USER_NAME is not None and tgbot is not None:
     @tgbot.on(events.InlineQuery)  # pylint:disable=E0602
     async def inline_handler(event):
         builder = event.builder
