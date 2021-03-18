@@ -32,7 +32,7 @@ if PMPERMIT_TEXT is None:
     USER_BOT_NO_WARN = (
         f"**Hello! நான் `{DEFAULTUSER} `\n\n"
         "நான் உங்களைப் போலல்லாமல் ஒரு Busy-யான மனிதர்!😁😅**\n\n"
-        "⭕️ இது **[TamilBot](http://t.me/TamilUserBot)** Security Service ⭕️\n\n"
+        "⭕️ இது **[TamilBot](http://t.me/TamilBotSupport)** Security Service ⭕️\n\n"
         f"🛡 PM பாதுகாப்பு சேவை! 🛡 \n\n"
         "**Please select an option from the drop down why you’re here!**"
     )
