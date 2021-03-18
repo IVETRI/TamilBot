@@ -6,7 +6,7 @@
     <a href="https://github.com/ivetri/tamilbot"> <img src="https://img.shields.io/github/repo-size/imsaravanakrish/tamilbot?color=orange&logo=github&logoColor=green&style=for-the-badge" /></a>
     <a href="https://github.com/ivetri/tamilbot/commits/prince"> <img src="https://img.shields.io/github/last-commit/imsaravanakrish/tamilbot?color=blue&logo=github&logoColor=green&style=for-the-badge" /></a>
     <a href="https://github.com/ivetri/tamilbot/issues"> <img src="https://img.shields.io/github/issues/imsaravanakrish/tamilbot?color=blueviolet&logo=github&logoColor=green&style=for-the-badge" /></a>
-    <a href="https://github.com/ivetri/tamilbot/network/members"> <img src="https://img.shields.io/github/forks/imsaravanakrish/tamilbot?color=red&logo=github&logoColor=green&style=for-the-badge" /></a>  
+    <a href="https://github.com/ivetri/tamilbot/network/members"> <img src="https://img.shields.io/github/forks/ivetri/tamilbot?color=red&logo=github&logoColor=green&style=for-the-badge" /></a>  
     <a href="https://pypi.org/project/Telethon/"> <img src="https://img.shields.io/pypi/v/telethon?color=yellow&label=telethon&logo=python&logoColor=green&style=for-the-badge" /></a>
 </p>
 
