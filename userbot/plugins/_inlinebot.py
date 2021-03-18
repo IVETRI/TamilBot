@@ -24,7 +24,7 @@ PREV_REPLY_MESSAGE = {}
 
 USER_BOT_WARN_ZERO = "`I had warned you not to spam. Now you have been blocked and reported until further notice.`\n\n**GoodBye!** "
 
-DEFAULTUSER = str(ALIVE_NAME) if ALIVE_NAME else "Tamilbot"
+DEFAULTUSER = str(ALIVE_NAME) if ALIVE_NAME else "TamilBot"
 
 if Var.TG_BOT_USER_NAME_BF_HER is not None and tgbot is not None:
     @tgbot.on(events.InlineQuery)
@@ -37,7 +37,7 @@ if Var.TG_BOT_USER_NAME_BF_HER is not None and tgbot is not None:
             buttons = paginate_help(0, CMD_LIST, "helpme")
             result = builder.article(
                 "© TamilBot Help",
-                text="{}\n🔘ℓσα∂є∂ ρℓυgιηѕ: {}".format(query, len(CMD_LIST)),
+                text="{}\n🔘 𝐋𝐨𝐚𝐝𝐞𝐝 𝐏𝐥𝐮𝐠𝐢𝐧𝐬: {}".format(query, len(CMD_LIST)),
                 buttons=buttons,
                 link_preview=False,
             )
@@ -45,11 +45,11 @@ if Var.TG_BOT_USER_NAME_BF_HER is not None and tgbot is not None:
         elif event.query.user_id == bot.uid and query == "stats":
             result = builder.article(
                 title="Stats",
-                text=f"**Showing Stats For {DEFAULTUSER}'s TamilBot** \nNote --> Only Owner Can Check This \n(C) @tamilsupport",
+                text=f"**Showing Stats For {DEFAULTUSER}'s TamilBot** \nNote --> Only Owner Can Check This \n(C) @TamilSupport",
                 buttons=[
                     [custom.Button.inline("Show Stats ?", data="terminator")],
-                    [Button.url("Repo 🇮🇳", "https://github.com/ivetri/tamilbot")],
-                    [Button.url("Join Channel ❤️", "t.me/Tamilsupport")],
+                    [Button.url("Repo 🇮🇳", "https://github.com/ivetri/TamilBot")],
+                    [Button.url("Join Channel ❤️", "t.me/TamilSupport")],
                 ],
             )
             await event.answer([result])
@@ -110,7 +110,7 @@ if Var.TG_BOT_USER_NAME_BF_HER is not None and tgbot is not None:
     )
     async def on_plug_in_callback_query_handler(event):
         if not event.query.user_id == bot.uid:
-            sedok = "Don’t use mine 😒 get your own @tamiluserbot"
+            sedok = "Don’t use mine 😒 get your own @TamilUserBot"
             await event.answer(sedok, cache_time=0, alert=True)
             return
         plugin_name = event.data_match.group(1).decode("UTF-8")
@@ -163,17 +163,17 @@ if Var.TG_BOT_USER_NAME_BF_HER is not None and tgbot is not None:
     @tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"backme")))
     async def sed(event):
         if event.query.user_id != bot.uid:
-            sedok = "Don’t use mine 😒 get your own @tamiluserbot"
+            sedok = "Don’t use mine 😒 get your own @TamilUserBot"
             await event.answer(sedok, cache_time=0, alert=True)
             return
         await event.answer("Back", cache_time=0, alert=False)
         # This Is Copy of Above Code. (C) @SpEcHiDe
         buttons = paginate_help(0, CMD_LIST, "helpme")
-        sed = f"""вσт σƒ {DEFAULTUSER}
+        sed = f"""𝔹𝕆𝕋 𝕆𝔽 {DEFAULTUSER}
 
-        ⚙️•TαɱιʅBσƚ Mҽɳυ•⚙️ 
+        ⚙️•𝚃𝚊𝚖𝚒𝚕𝙱𝚘𝚝 𝙼𝚎𝚗𝚞•⚙️ 
 
-        🔘ℓσα∂є∂ ρℓυgιηѕ: {len(CMD_LIST)} """
+        🔘𝐋𝐨𝐚𝐝𝐞𝐝 𝐏𝐥𝐮𝐠𝐢𝐧𝐬: {len(CMD_LIST)} """
         await event.edit(message=sed, buttons=buttons)
 
     @tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"pmclick")))
