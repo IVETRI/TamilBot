@@ -44,7 +44,7 @@ async def cmd_list(event):
         else:
             help_string = f"""Bot σƒ {DEFAULTUSER}
 
-              ⚙️•TαɱιʅBσƚ Mҽɳυ•⚙️ """
+              ⚙️•𝚃𝚊𝚖𝚒𝚕𝙱𝚘𝚝 𝙼𝚎𝚗𝚞•⚙️ """
             results = await bot.inline_query(  # pylint:disable=E0602
                 tgbotusername,
                 help_string
