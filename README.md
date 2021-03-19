@@ -46,6 +46,7 @@ Click the below button to watch the video tutorial on deploying
 
 <a href="https://youtu.be/fqhCz-eRkgA"><img src="https://img.shields.io/badge/How%20To%20Deploy-blue.svg?logo=Youtube"></a>
 <a href="https://youtu.be/fqhCz-eRkgA"><img src="https://img.shields.io/youtube/views/fqhCz-eRkgA?style=social">
+<img src="https://img.shields.io/youtube/likes/fqhCz-eRkgA?style=social">
 
     
 ###  GET STRING SESSION FROM REPL RUN
