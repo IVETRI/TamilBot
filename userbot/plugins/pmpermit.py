@@ -23,7 +23,7 @@ else:
 
 FAV_NAME = os.environ.get("FAV_NAME", None)
 if FAV_NAME is None:
-    FAV_NAME = "Tamil UserBot"
+    FAV_NAME = "Saro userbot"
 
 
 
@@ -32,7 +32,7 @@ if PMPERMIT_TEXT is None:
     USER_BOT_NO_WARN = (
         f"**Hello! நான் `{DEFAULTUSER} `\n\n"
         "நான் உங்களைப் போலல்லாமல் ஒரு Busy-யான மனிதர்!😁😅**\n\n"
-        "⭕️இது **[TamilBot](http://t.me/TamilBotSupport)** Security Service⭕️\n\n"
+        "⭕️இது **[Sarobot](http://t.me/https://t.me/joinchat/WSgFgcBj6M8J6npS)** Security Service⭕️\n\n"
         f"🛡 PM பாதுகாப்பு சேவை! 🛡 \n\n"
         "**Please select an option from the drop down why you’re here!**"
     )
